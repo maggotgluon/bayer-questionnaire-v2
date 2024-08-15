@@ -1,0 +1,20 @@
+{
+  "resources/assets/images/btn_ans.svg": {
+    "file": "assets/btn_ans-CbGuKnwW.svg",
+    "src": "resources/assets/images/btn_ans.svg"
+  },
+  "resources/assets/images/btn_ans_active.svg": {
+    "file": "assets/btn_ans_active-BZCz3ePi.svg",
+    "src": "resources/assets/images/btn_ans_active.svg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-l0sNRNKZ.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-DFy4pPA3.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
