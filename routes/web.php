@@ -11,6 +11,12 @@ use App\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Livewire\client\index as clientIndex;
+use App\Livewire\client\QuizPMDD as QuizPMDD;
+use App\Livewire\client\QuizHormonalAcne as QuizHormonalAcne;
+use App\Livewire\client\QuizHighTestosterone as QuizHighTestosterone;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +28,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+// Route::view('/', 'welcome')->name('home');
+Route::get('/', clientIndex::class)->name('home');
+
+Route::get('/quiz/1/{client}', QuizPMDD::class)->name('QuizPMDD');
+Route::get('/quiz/2/{client}', QuizHormonalAcne::class)->name('QuizHormonalAcne');
+Route::get('/quiz/3/{client}', QuizHighTestosterone::class)->name('QuizHighTestosterone');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

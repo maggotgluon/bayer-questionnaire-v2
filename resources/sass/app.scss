@@ -53,3 +53,51 @@
 [x-cloak] {
     display: none;
 }
+
+
+.checkbox,.radio{
+    @apply p-2;
+    *{
+        @apply transition-all;
+    }
+    label{
+        @apply border-transparent overflow-clip;
+
+        div>div:first-child,[type="checkbox"],[type="radio"]{
+            @apply hidden;
+            background-color: green;
+        }
+        div{
+            @apply w-full text-center m-0;
+        }
+        label{
+            @apply border-0 w-full p-2 ;
+        }
+        &:has(input[type="checkbox"]:checked),
+        &:has(input[type="radio"]:checked){
+            color: white;
+
+        }
+    }
+}
+
+.btn{
+    &-ans{
+        @apply bg-[url('/resources/assets/images/btn_ans.svg')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        label{
+            @apply text-xl;
+        }
+        @apply drop-shadow-none;
+        @apply transition-all duration-500 ease-out;
+        &:has(:checked){
+            @apply bg-[url('/resources/assets/images/btn_ans_active.svg')];
+            @apply scale-110 drop-shadow-md;
+            label{
+                @apply text-gray-600;
+            }
+        }
+        &:hover{
+            @apply scale-110 drop-shadow-md
+        }
+    }
+}
