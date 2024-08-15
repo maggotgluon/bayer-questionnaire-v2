@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-use App\Livewire\client\index as clientIndex;
-use App\Livewire\client\QuizPMDD as QuizPMDD;
-use App\Livewire\client\QuizHormonalAcne as QuizHormonalAcne;
-use App\Livewire\client\QuizHighTestosterone as QuizHighTestosterone;
+use App\Livewire\Client\Index as clientIndex;
+use App\Livewire\Client\QuizPMDD as QuizPMDD;
+use App\Livewire\Client\QuizHormonalAcne as QuizHormonalAcne;
+use App\Livewire\Client\QuizHighTestosterone as QuizHighTestosterone;
 
 /*
 |--------------------------------------------------------------------------
