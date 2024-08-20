@@ -15,8 +15,8 @@ class Index extends Component
     public function mount(){
         // $this->page=5;
         
-        $this->data['name']=fake()->name();
-        $this->data['age']=fake()->randomDigitNotZero()*10;
+        // $this->data['name']=fake()->name();
+        // $this->data['age']=fake()->randomDigitNotZero()*10;
         
     }
     public function render()

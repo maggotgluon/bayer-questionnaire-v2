@@ -23,7 +23,7 @@ class QuizPMDD extends Component
         }else{
             dd($client);
         }
-        $this->page=8;
+        // $this->page=8;
     }
 
     public function render()
