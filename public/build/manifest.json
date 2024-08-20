@@ -1,4 +1,92 @@
 {
+  "resources/assets/fonts/db_heavent.woff": {
+    "file": "assets/db_heavent-3wlrKg3y.woff",
+    "src": "resources/assets/fonts/db_heavent.woff"
+  },
+  "resources/assets/fonts/db_heavent.woff2": {
+    "file": "assets/db_heavent-B4FM_uvG.woff2",
+    "src": "resources/assets/fonts/db_heavent.woff2"
+  },
+  "resources/assets/fonts/db_heavent_med.woff": {
+    "file": "assets/db_heavent_med-SO9DSRrt.woff",
+    "src": "resources/assets/fonts/db_heavent_med.woff"
+  },
+  "resources/assets/fonts/db_heavent_med.woff2": {
+    "file": "assets/db_heavent_med-HAJn3GZp.woff2",
+    "src": "resources/assets/fonts/db_heavent_med.woff2"
+  },
+  "resources/assets/fonts/mitr-bold.ttf": {
+    "file": "assets/mitr-bold-47bccz9G.ttf",
+    "src": "resources/assets/fonts/mitr-bold.ttf"
+  },
+  "resources/assets/fonts/mitr-bold.woff": {
+    "file": "assets/mitr-bold-BmTuNV8E.woff",
+    "src": "resources/assets/fonts/mitr-bold.woff"
+  },
+  "resources/assets/fonts/mitr-bold.woff2": {
+    "file": "assets/mitr-bold-CD-tLaYq.woff2",
+    "src": "resources/assets/fonts/mitr-bold.woff2"
+  },
+  "resources/assets/fonts/mitr-extralight.ttf": {
+    "file": "assets/mitr-extralight-Bou7_3tQ.ttf",
+    "src": "resources/assets/fonts/mitr-extralight.ttf"
+  },
+  "resources/assets/fonts/mitr-extralight.woff": {
+    "file": "assets/mitr-extralight-CbkeARj0.woff",
+    "src": "resources/assets/fonts/mitr-extralight.woff"
+  },
+  "resources/assets/fonts/mitr-extralight.woff2": {
+    "file": "assets/mitr-extralight-BT26E4J-.woff2",
+    "src": "resources/assets/fonts/mitr-extralight.woff2"
+  },
+  "resources/assets/fonts/mitr-light.ttf": {
+    "file": "assets/mitr-light-CypLHWvy.ttf",
+    "src": "resources/assets/fonts/mitr-light.ttf"
+  },
+  "resources/assets/fonts/mitr-light.woff": {
+    "file": "assets/mitr-light-CuIfogAo.woff",
+    "src": "resources/assets/fonts/mitr-light.woff"
+  },
+  "resources/assets/fonts/mitr-light.woff2": {
+    "file": "assets/mitr-light-BX1oZHLX.woff2",
+    "src": "resources/assets/fonts/mitr-light.woff2"
+  },
+  "resources/assets/fonts/mitr-medium.ttf": {
+    "file": "assets/mitr-medium-E67jd0yM.ttf",
+    "src": "resources/assets/fonts/mitr-medium.ttf"
+  },
+  "resources/assets/fonts/mitr-medium.woff": {
+    "file": "assets/mitr-medium-Cpbebg7b.woff",
+    "src": "resources/assets/fonts/mitr-medium.woff"
+  },
+  "resources/assets/fonts/mitr-medium.woff2": {
+    "file": "assets/mitr-medium-Dj58dqu5.woff2",
+    "src": "resources/assets/fonts/mitr-medium.woff2"
+  },
+  "resources/assets/fonts/mitr-regular.ttf": {
+    "file": "assets/mitr-regular-KXSPIqYE.ttf",
+    "src": "resources/assets/fonts/mitr-regular.ttf"
+  },
+  "resources/assets/fonts/mitr-regular.woff": {
+    "file": "assets/mitr-regular-CD3nJphS.woff",
+    "src": "resources/assets/fonts/mitr-regular.woff"
+  },
+  "resources/assets/fonts/mitr-regular.woff2": {
+    "file": "assets/mitr-regular-BzgFsdWu.woff2",
+    "src": "resources/assets/fonts/mitr-regular.woff2"
+  },
+  "resources/assets/fonts/mitr-semibold.ttf": {
+    "file": "assets/mitr-semibold-DkdqDvLg.ttf",
+    "src": "resources/assets/fonts/mitr-semibold.ttf"
+  },
+  "resources/assets/fonts/mitr-semibold.woff": {
+    "file": "assets/mitr-semibold-BeWvSD5J.woff",
+    "src": "resources/assets/fonts/mitr-semibold.woff"
+  },
+  "resources/assets/fonts/mitr-semibold.woff2": {
+    "file": "assets/mitr-semibold-BlX4q2Qn.woff2",
+    "src": "resources/assets/fonts/mitr-semibold.woff2"
+  },
   "resources/assets/images/bg-paper.png": {
     "file": "assets/bg-paper-3y8A9tpR.png",
     "src": "resources/assets/images/bg-paper.png"
@@ -41,7 +129,7 @@
     "isEntry": true
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-C1Xtk3cn.css",
+    "file": "assets/app-DXhRpCqF.css",
     "src": "resources/sass/app.scss",
     "isEntry": true
   }
