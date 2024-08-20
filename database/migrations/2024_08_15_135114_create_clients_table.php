@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             // $table->id();
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('age');
             $table->string('progress')->nullable();

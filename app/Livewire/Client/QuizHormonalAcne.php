@@ -18,6 +18,7 @@ class QuizHormonalAcne extends Component
         }else{
             dd($client);
         }
+        $this->page=6;
     }
     public function render()
     {

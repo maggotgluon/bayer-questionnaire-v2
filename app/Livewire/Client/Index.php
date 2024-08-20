@@ -13,7 +13,7 @@ class Index extends Component
     public $client;
 
     public function mount(){
-        $this->page=4;
+        // $this->page=5;
         
         $this->data['name']=fake()->name();
         $this->data['age']=fake()->randomDigitNotZero()*10;
@@ -25,7 +25,7 @@ class Index extends Component
     }
     public function quiz_0Submit(){
         $validatedData = $this->validate([
-            'data.name' => 'required|min:6',
+            'data.name' => 'required|min:2',
             'data.age' => 'required|numeric|min:10|max:99',
         ]);
         // verify name and age
@@ -39,7 +39,17 @@ class Index extends Component
 
     public function quiz_1Submit(){
         // dd($this->data['quiz_1']);
-        $d = collect($this->data['quiz_1']);
+
+        $validatedData = $this->validate([
+            'data.quiz_1' => 'required',
+        ]);
+        $d = collect($this->data['quiz_1'])
+            ->filter(function($value,$key){
+                if($value){
+                    return $key;
+                }
+            });
+        // dd($d,$d->count(true));
 
         if($d->count() == 1){
             switch (true) {
@@ -76,6 +86,10 @@ class Index extends Component
     }
 
     public function quiz_2Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_2' => 'required',
+        ]);
         $d = collect($this->data['quiz_2']);
         if(isset($d['a1']) ||isset($d['a2']) ||isset($d['a3'])){
             $this->client->type="HighTestosterone";

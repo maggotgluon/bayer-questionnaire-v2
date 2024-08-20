@@ -7,7 +7,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                mitr: ['mitr',...defaultTheme.fontFamily.sans],
+                db_heavent: ['db_heavent',...defaultTheme.fontFamily.sans],
+                sans: ['mitr', ...defaultTheme.fontFamily.sans],
             },
         },
     },

@@ -17,11 +17,13 @@ class QuizPMDD extends Component
     public $page=1;
 
     public function mount(client $client = null){
+
         if($client->type=="PMDD"){
             $this->client=$client;
         }else{
             dd($client);
         }
+        $this->page=8;
     }
 
     public function render()
@@ -36,6 +38,7 @@ class QuizPMDD extends Component
                 $this->score+=1;
             }
         }
+        $this->next();
         // dd($this->data['quiz_1'],$ans,$this->score);
     }
 
@@ -49,6 +52,7 @@ class QuizPMDD extends Component
                 $this->score+=1;
             }
         }
+        $this->next();
         // dd($this->data['quiz_2'],$ans);
     }
     public function quiz_3Submit(){
@@ -58,16 +62,42 @@ class QuizPMDD extends Component
         }else{
             $this->level="GREEN LEVEL";
         }
-        dd($this->data['quiz_3']);
+        $this->next();
+        // dd($this->data['quiz_3']);
     }
-    public function quiz_4Submit(){}
+    public function quiz_4Submit(){
+
+        // $ans=$this->ans($this->data['quiz_4']);
+        // dd($this->data['quiz_4']);
+        switch ($this->data['quiz_4']) {
+            case 1:
+                $this->getResult();
+                break;
+            default:
+                $this->next();
+                break;
+        }
+        // foreach($ans as $a){
+        //     if($a==6){
+        //         // $this->level="GREEN LEVEL";
+        //     }else{
+        //         // $this->score+=1;
+        //     }
+        // }
+
+    }
     public function getResult(){
         if($this->score>=7){
-
+            dd("ไม่ไหวแล้ว...
+            ทุกอย่างเกินที่เธอจะรับไหว
+            ใช่ไหม");
         }elseif($this->score>=3){
-
+            dd("เพราะคิดว่าฮอร์โมน
+            เปลี่ยนแปลงใช่ไหม
+            อารมณ์ที่เปลี่ยนไป");
         }elseif($this->score<=2){
-
+            dd("เธอเป็นคนธรรมดา
+            แต่อย่าชะล่าใจกับการไม่เปลี่ยนแปลง");
         }
     }
 

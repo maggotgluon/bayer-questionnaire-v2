@@ -1,4 +1,24 @@
 {
+  "resources/assets/images/bg-paper.png": {
+    "file": "assets/bg-paper-3y8A9tpR.png",
+    "src": "resources/assets/images/bg-paper.png"
+  },
+  "resources/assets/images/btn0.png": {
+    "file": "assets/btn0-DTOeK725.png",
+    "src": "resources/assets/images/btn0.png"
+  },
+  "resources/assets/images/btn1.png": {
+    "file": "assets/btn1-zaU_cN1p.png",
+    "src": "resources/assets/images/btn1.png"
+  },
+  "resources/assets/images/btn2.png": {
+    "file": "assets/btn2-BS7AJu0u.png",
+    "src": "resources/assets/images/btn2.png"
+  },
+  "resources/assets/images/btn3.png": {
+    "file": "assets/btn3-PBj7toKZ.png",
+    "src": "resources/assets/images/btn3.png"
+  },
   "resources/assets/images/btn_ans.svg": {
     "file": "assets/btn_ans-CbGuKnwW.svg",
     "src": "resources/assets/images/btn_ans.svg"
@@ -7,13 +27,21 @@
     "file": "assets/btn_ans_active-BZCz3ePi.svg",
     "src": "resources/assets/images/btn_ans_active.svg"
   },
+  "resources/assets/images/q0-2.png": {
+    "file": "assets/q0-2-CHUgKwRK.png",
+    "src": "resources/assets/images/q0-2.png"
+  },
+  "resources/assets/images/q1-4.png": {
+    "file": "assets/q1-4-DG2PQRtF.png",
+    "src": "resources/assets/images/q1-4.png"
+  },
   "resources/js/app.js": {
     "file": "assets/app-l0sNRNKZ.js",
     "src": "resources/js/app.js",
     "isEntry": true
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-DFy4pPA3.css",
+    "file": "assets/app-C1Xtk3cn.css",
     "src": "resources/sass/app.scss",
     "isEntry": true
   }
