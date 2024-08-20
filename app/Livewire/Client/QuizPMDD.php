@@ -23,7 +23,7 @@ class QuizPMDD extends Component
         }else{
             dd($client);
         }
-        // $this->page=8;
+        // $this->page=9;
     }
 
     public function render()
@@ -32,8 +32,10 @@ class QuizPMDD extends Component
     }
 
     public function quiz_1Submit(){
+        
         $ans=$this->ans($this->data['quiz_1']);
         foreach($ans as $a){
+            // dd($a);
             if($a!=5){
                 $this->score+=1;
             }
@@ -47,7 +49,8 @@ class QuizPMDD extends Component
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
             if($a==6){
-                $this->level="GREEN LEVEL";
+                $this->level="green";
+                return $this->goto(8);
             }else{
                 $this->score+=1;
             }
@@ -60,7 +63,8 @@ class QuizPMDD extends Component
         if($this->data['quiz_3']==1){
             $this->score+=3;
         }else{
-            $this->level="GREEN LEVEL";
+            $this->level="green";
+            return $this->goto(8);
         }
         $this->next();
         // dd($this->data['quiz_3']);
@@ -88,17 +92,26 @@ class QuizPMDD extends Component
     }
     public function getResult(){
         if($this->score>=7){
-            dd("ไม่ไหวแล้ว...
-            ทุกอย่างเกินที่เธอจะรับไหว
-            ใช่ไหม");
+            $this->client->lavel="red";
+            // dd("ไม่ไหวแล้ว...
+            // ทุกอย่างเกินที่เธอจะรับไหว
+            // ใช่ไหม");
         }elseif($this->score>=3){
-            dd("เพราะคิดว่าฮอร์โมน
-            เปลี่ยนแปลงใช่ไหม
-            อารมณ์ที่เปลี่ยนไป");
+            $this->client->lavel="yellow";
+            // dd('level yellow');
+            // dd("เพราะคิดว่าฮอร์โมน
+            // เปลี่ยนแปลงใช่ไหม
+            // อารมณ์ที่เปลี่ยนไป");
         }elseif($this->score<=2){
-            dd("เธอเป็นคนธรรมดา
-            แต่อย่าชะล่าใจกับการไม่เปลี่ยนแปลง");
+            $this->client->lavel="green";
+            // dd('level green');
+            // dd("เธอเป็นคนธรรมดา
+            // แต่อย่าชะล่าใจกับการไม่เปลี่ยนแปลง");
         }
+        $this->client->status="done";
+        $this->client->save();
+        return redirect(route('result',$this->client));
+        dd($this->client);
     }
 
     public function goto($page=null){
@@ -124,6 +137,7 @@ class QuizPMDD extends Component
     }
     public function updateClientProgress(){
         $this->client->progress=$this->page;
+        $this->client->score=$this->score;
         $this->client->save();
     }
     public function ans($d){

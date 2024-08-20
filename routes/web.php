@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Livewire\Client\Index as clientIndex;
+use App\Livewire\Client\QuizResult as clientResult;
 use App\Livewire\Client\QuizPMDD as QuizPMDD;
 use App\Livewire\Client\QuizHormonalAcne as QuizHormonalAcne;
 use App\Livewire\Client\QuizHighTestosterone as QuizHighTestosterone;
@@ -34,6 +35,7 @@ Route::get('/', clientIndex::class)->name('home');
 Route::get('/quiz/1/{client}', QuizPMDD::class)->name('QuizPMDD');
 Route::get('/quiz/2/{client}', QuizHormonalAcne::class)->name('QuizHormonalAcne');
 Route::get('/quiz/3/{client}', QuizHighTestosterone::class)->name('QuizHighTestosterone');
+Route::get('/result/{client}', clientResult::class)->name('result');
 
 
 Route::middleware('guest')->group(function () {
