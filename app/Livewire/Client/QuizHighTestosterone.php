@@ -25,6 +25,15 @@ class QuizHighTestosterone extends Component
         return view('livewire.client.quiz-high-testosterone');
     }
 
+    public function getResult(){
+        if($this->score>=7){
+            dd("result 1");
+        }elseif($this->score>=3){
+            dd("result 2");
+        }elseif($this->score<=2){
+            dd("result 3");
+        }
+    }
 
     public function goto($page=null){
         if($page){

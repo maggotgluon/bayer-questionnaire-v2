@@ -2,9 +2,6 @@
     <div class="fixed left-1 top-1">
         <x-button label="back" wire:click="back()" />
         <x-button label="next" wire:click="next()" />
-        <hr>
-        data:{{var_dump($data)}}<br>
-        score:{{var_dump($score)}}
     </div>
 
     @switch($page)

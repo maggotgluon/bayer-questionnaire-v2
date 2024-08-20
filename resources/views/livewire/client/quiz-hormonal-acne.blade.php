@@ -151,7 +151,7 @@
             </ul>
 
                 <div class="text-center">
-                    <x-button class="btn-2" wire:click="next" label="ต่อไป" />
+                    <x-button class="btn-2" wire:click="getResult" label="ต่อไป" />
                 </div>
             </section>
             @break

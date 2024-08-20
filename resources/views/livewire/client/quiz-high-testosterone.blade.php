@@ -171,7 +171,7 @@
                     <li>ปรึกษาเภสัชกรหรือแพทย์เพื่อหาแนวทางในการปรับเปลี่ยนด้วยฮอร์โมน เช่น EE35C หากเข้าเงื่อนไข</li>
                 </ul>
                 <div class="text-center">
-                    <x-button class="btn-3" wire:click="next" label="ต่อไป" />
+                    <x-button class="btn-3" wire:click="getResult" label="ต่อไป" />
                 </div>
             </section>
         @break
