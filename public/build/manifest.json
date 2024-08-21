@@ -108,12 +108,28 @@
     "src": "resources/assets/images/btn3.png"
   },
   "resources/assets/images/btn_ans.svg": {
-    "file": "assets/btn_ans-CbGuKnwW.svg",
+    "file": "assets/btn_ans-DgXCvvd8.svg",
     "src": "resources/assets/images/btn_ans.svg"
   },
   "resources/assets/images/btn_ans_active.svg": {
-    "file": "assets/btn_ans_active-BZCz3ePi.svg",
+    "file": "assets/btn_ans_active-DcHLfPNo.svg",
     "src": "resources/assets/images/btn_ans_active.svg"
+  },
+  "resources/assets/images/bubble_l1.png": {
+    "file": "assets/bubble_l1-BEyVHAxe.png",
+    "src": "resources/assets/images/bubble_l1.png"
+  },
+  "resources/assets/images/bubble_l2.png": {
+    "file": "assets/bubble_l2-aWAH3brL.png",
+    "src": "resources/assets/images/bubble_l2.png"
+  },
+  "resources/assets/images/bubble_ls.png": {
+    "file": "assets/bubble_ls-CTIZLYFV.png",
+    "src": "resources/assets/images/bubble_ls.png"
+  },
+  "resources/assets/images/bubble_rs.png": {
+    "file": "assets/bubble_rs-B8Ep_Y48.png",
+    "src": "resources/assets/images/bubble_rs.png"
   },
   "resources/assets/images/q0-2.png": {
     "file": "assets/q0-2-CHUgKwRK.png",
@@ -129,7 +145,7 @@
     "isEntry": true
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-BMeDtuzf.css",
+    "file": "assets/app-CwAsiuCO.css",
     "src": "resources/sass/app.scss",
     "isEntry": true
   }
