@@ -14,9 +14,10 @@ class Index extends Component
 
     public function mount(){
         // $this->page=5;
-        
-        // $this->data['name']=fake()->name();
-        // $this->data['age']=fake()->randomDigitNotZero()*10;
+        if(env('APP_DEBUG',false)){
+            $this->data['name']=fake()->name();
+            $this->data['age']=fake()->randomDigitNotZero()*10;
+        }
         
     }
     public function render()
@@ -49,16 +50,16 @@ class Index extends Component
                     return $key;
                 }
             });
-        // dd($d,$d->count(true));
+        // dd($d,$d->count(true),isset($d['a1']),isset($d['a2']),isset($d['a3']));
 
         if($d->count() == 1){
             switch (true) {
                 case isset($d['a1']):
                     # code...
                     // dd($d['a1']);
-                    $this->client->type="HighTestosterone";
+                    $this->client->type="PMDD";
                     $this->client->save();
-                    redirect(route('QuizHighTestosterone',$this->client));
+                    redirect(route('QuizPMDD',$this->client));
                     break;
                 case isset($d['a2']):
                     # code...
@@ -70,9 +71,9 @@ class Index extends Component
                 case isset($d['a3']):
                     # code...
                     // dd($d['a3']);
-                    $this->client->type="PMDD";
+                    $this->client->type="HighTestosterone";
                     $this->client->save();
-                    redirect(route('QuizPMDD',$this->client));
+                    redirect(route('QuizHighTestosterone',$this->client));
                     break;
                 
                 default:

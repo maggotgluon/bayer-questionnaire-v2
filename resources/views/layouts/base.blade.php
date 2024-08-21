@@ -24,7 +24,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
-    <body class="w-full min-h-screen grid justify-items-center bg-gradient-to-b from-[#BED767] to-[#52B5AC]">
+    <body class="w-full min-h-screen grid justify-items-center">
         <x-notifications z-index="z-50" />
         @yield('body')
     </body>
