@@ -33,7 +33,7 @@
                         ก่อนมีประจำเดือน <br>
                         1 สัปดาห์ ใช่หรือไม่
                     </h2>
-                    <span>(เลือกได้มากกว่า 1 ข้อ)</span>
+                    {{-- <span>(เลือกได้มากกว่า 1 ข้อ)</span> --}}
                     </div>
                     <ul>
                         <li><div class="radio btn-ans"><x-radio id="q-3-1" wire:model="data.quiz_1" value="1" label="ใช่"/></div></li>

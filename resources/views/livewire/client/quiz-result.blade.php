@@ -13,7 +13,8 @@
             <span class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO"/>
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ"/>
-                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%]" >
+                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%]" 
+                href="https://bit.ly/medcare-bayer-hormonal-quiz/">
                     ปรึกษาปัญหา <br>สุขภาพผู้หญิง
                 </x-button>
             </span>
