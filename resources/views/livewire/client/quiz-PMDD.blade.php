@@ -83,7 +83,8 @@
                                     label="ไม่อยากอาหาร เหมือนคนอกหัก" /></div>
                         </li>
                         <li>
-                            <div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.4" label="เจ็บเต้านม " />
+                            <div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.4" 
+                                label="เจ็บเต้านม " />
                             </div>
                         </li>
                         <li>

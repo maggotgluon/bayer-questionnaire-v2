@@ -8,6 +8,7 @@ use Livewire\Component;
 class QuizResult extends Component
 {
     public $image;
+    public $element;
     public $client;
     public function render()
     {
@@ -19,13 +20,19 @@ class QuizResult extends Component
         switch ($client->type) {
             case 'PMDD':
                 $this->image.='r1-';
+                $this->element['btn']='btn-1 btn-1-lg ';
+                $this->element['color']='btn-text-green';
                 break;
             case 'HighTestosterone':
                 $this->image.='r2-';
+                $this->element['btn']='btn-2 btn-2-lg ';
+                $this->element['color']='btn-text-orange';
                 # code...
                 break;
             case 'HormonalAcne':
                 $this->image.='r3-';
+                $this->element['btn']='btn-3 btn-3-lg ';
+                $this->element['color']='btn-text-pink';
                 # code...
                 break;
             

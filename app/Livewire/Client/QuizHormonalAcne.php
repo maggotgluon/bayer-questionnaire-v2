@@ -22,6 +22,7 @@ class QuizHormonalAcne extends Component
         }else{
             dd($client);
         }
+        $this->client->answer=[];
         // $this->page=6;
     }
     public function render()
@@ -31,24 +32,45 @@ class QuizHormonalAcne extends Component
 
 
     public function quiz_1Submit(){
+        $select = $this->client->answer;
         if($this->data['quiz_1']==1){
+            $select[]='สิวเกิดขึ้นในช่วง ก่อนมีประจำเดือน 1 สัปดาห์';
             $this->score+=3;
         }else{
             // $this->level="GREEN LEVEL";
         }
+        $this->client->answer=$select;
         $this->next();
     }
     public function quiz_2Submit(){
 
+        $select = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
+            if($a==1){
+                $select[] = 'สิวอุดตันหัวดำ';
+            }
+            if($a==2){
+                $select[] = 'สิวอุดตันหัวขาว';
+            }
+            if($a==3){
+                $select[] = 'สิวตุ่มหนอง';
+            }
+            if($a==4){
+                $select[] = 'สิวหัวช้าง';
+            }
+            if($a==5){
+                $select[] = 'สิวผด';
+            }
             if($a!=5){
                 $this->score+=1;
             }
         }
+        $this->client->answer=$select;
         $this->next();
     }
     public function quiz_3Submit(){
+        $select = $this->client->answer;
         $ans=$this->data['quiz_3'];
         if($ans==5){
             $this->client->type='HighTestosterone';
@@ -56,9 +78,22 @@ class QuizHormonalAcne extends Component
             redirect(route('QuizHighTestosterone',$this->client));
         }
         if($ans!=5){
+            if($ans==1){
+                $select[]='ประจำเดือนมา ๆ หาย ๆ เดาใจยากเหมือนคนคุย';
+            }
+            if($ans==2){
+                $select[]='หน้ามัน เหมือนหนังปลาทู';
+            }
+            if($ans==3){
+                $select[]='ขนดก เหมือนผู้ชายมาดแมน';
+            }
+            if($ans==4){
+                $select[]='ผมร่วงเหมือนใบไม้แห้ง';
+            }
             $this->score+=1;
         }
         
+        $this->client->answer=$select;
         $this->next();
     }
     public function quiz_4Submit(){

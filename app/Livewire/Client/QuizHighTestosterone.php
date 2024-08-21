@@ -21,6 +21,7 @@ class QuizHighTestosterone extends Component
         }else{
             dd($client);
         }
+        $this->client->answer=[];
         // $this->page=6;
     }
     public function render()
@@ -29,20 +30,32 @@ class QuizHighTestosterone extends Component
     }
 
     public function quiz_1Submit(){
+        $select = $this->client->answer;
         if($this->data['quiz_1']!=3){
+            if($this->data['quiz_1']==1){$select[] = 'ประจำเดือนไม่มานานกว่า 35 วัน';}
+            if($this->data['quiz_1']==2){$select[] = 'ประจำเดือนยังไม่มา นานเกิน 90 วัน แต่เคยมาปกติ';}
+            // if($this->data['quiz_1']==3){$select[] = 'ประจำเดือนมาปกติ รอบเดือนอยู่ที่ 21-35 วัน';}
             $this->score+=2;
         }else{
             $this->level="GREEN LEVEL";
         }
+        $this->client->answer=$select;
         $this->next();
     }
     public function quiz_2Submit(){
+        $select = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
+            if($a==1){$select[]='สิวเห่อ สิวผลุบๆ โผล่ๆ เหมือนตัวตุ่น';}
+            if($a==2){$select[]='หน้ามัน เหมือนหนังปลาทู';}
+            if($a==3){$select[]='ขนดก เหมือนผู้ชายมาดแมน';}
+            if($a==4){$select[]='ผมร่วง เหมือนใบไม้แห้ง';}
+            // if($a==5){$select[]='ไม่มีอาการใด ๆ โชคดีเหมือนถูกหวย';}
             if($a!=5){
                 $this->score+=1;
             }
         }
+        $this->client->answer=$select;
         $this->next();
     }
     public function quiz_3Submit(){

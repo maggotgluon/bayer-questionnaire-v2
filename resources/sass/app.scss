@@ -199,6 +199,9 @@
     }
     &-1{
         @apply text-black p-4 bg-[url('/resources/assets/images/btn1.png')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        &-lg{
+            @apply text-black p-4 bg-[url('/resources/assets/images/btn1-1.png')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        }
         label{
             @apply text-xl text-black;
         }
@@ -213,6 +216,9 @@
     }
     &-2{
         @apply text-black p-4 bg-[url('/resources/assets/images/btn2.png')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        &-lg{
+            @apply text-black p-4 bg-[url('/resources/assets/images/btn2-1.png')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        }
         label{
             @apply text-xl text-black;
         }
@@ -227,6 +233,9 @@
     }
     &-3{
         @apply text-black p-4 bg-[url('/resources/assets/images/btn3.png')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        &-lg{
+            @apply text-black p-4 bg-[url('/resources/assets/images/btn3-1.png')] bg-no-repeat border-transparent bg-center bg-contain w-4/5 mx-auto my-2;
+        }
         label{
             @apply text-xl text-black;
         }
@@ -265,4 +274,13 @@
     &-l3{
         @apply bg-[url('/resources/assets/images/bubble_l2.png')];
     }
+}
+.btn-text-green{
+    color: #009CB4;
+}
+.btn-text-orange{
+    color: #EF482E;
+}
+.btn-text-pink{
+    color: #ED048C;
 }

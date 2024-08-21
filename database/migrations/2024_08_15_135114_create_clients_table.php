@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('age');
             $table->string('progress')->nullable();
-            $table->string('answer')->nullable();
+            $table->json('answer')->nullable();
 
             $table->string('type')->nullable();
             $table->string('lavel')->nullable();
