@@ -23,13 +23,13 @@ class QuizResult extends Component
                 $this->element['btn']='btn-1 btn-1-lg ';
                 $this->element['color']='btn-text-green';
                 break;
-            case 'HighTestosterone':
+            case 'HormonalAcne':
                 $this->image.='r2-';
                 $this->element['btn']='btn-2 btn-2-lg ';
                 $this->element['color']='btn-text-orange';
                 # code...
                 break;
-            case 'HormonalAcne':
+            case 'HighTestosterone':
                 $this->image.='r3-';
                 $this->element['btn']='btn-3 btn-3-lg ';
                 $this->element['color']='btn-text-pink';

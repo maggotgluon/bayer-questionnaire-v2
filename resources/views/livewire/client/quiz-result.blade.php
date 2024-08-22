@@ -19,7 +19,9 @@
                 href="https://bit.ly/medcare-bayer-hormonal-quiz">
                     ปรึกษาปัญหา <br>สุขภาพผู้หญิง
                 </x-button>
-                <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='test'/>
+                <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='send line msg'/>
+                <x-button href="https://social-plugins.line.me/lineit/share?url={{urlencode(URL::current())}}&text=ข้อมูลของฉัน" label='send line msg 2'/>
+                
                 
             </span>
             {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}

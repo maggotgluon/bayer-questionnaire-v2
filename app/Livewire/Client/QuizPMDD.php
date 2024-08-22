@@ -58,7 +58,7 @@ class QuizPMDD extends Component
             }
         }
         $this->client->answer=$select;
-        // $this->client->save();
+        $this->client->save();
         // dd($select,$this->client->answer);
 
         
@@ -95,7 +95,7 @@ class QuizPMDD extends Component
             }
         }
         $this->client->answer=$select;
-        // $this->client->save();
+        $this->client->save();
         $this->next();
         // dd($this->data['quiz_2'],$ans);
     }

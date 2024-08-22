@@ -80,6 +80,20 @@ class Index extends Component
                     # code...
                     break;
             }
+        }elseif($d->count() == 2){
+            if(isset($d['a1']) && isset($d['a2'])){
+                $this->client->type="PMDD";
+                $this->client->save();
+                redirect(route('QuizPMDD',$this->client));
+            }
+            if(isset($d['a2']) && isset($d['a3'])){
+                $this->client->type="HormonalAcne";
+                $this->client->save();
+                redirect(route('QuizHormonalAcne',$this->client));
+            }
+            if(isset($d['a1']) && isset($d['a3'])){
+                $this->next();
+            }
         }else{
             $this->next();
         }
@@ -92,7 +106,7 @@ class Index extends Component
             'data.quiz_2' => 'required',
         ]);
         $d = collect($this->data['quiz_2']);
-        if(isset($d['a1']) ||isset($d['a2']) ||isset($d['a3'])){
+        if(isset($d['a1']) || isset($d['a2']) || isset($d['a3'])){
             $this->client->type="HighTestosterone";
             $this->client->save();
             redirect(route('QuizHighTestosterone',$this->client));
