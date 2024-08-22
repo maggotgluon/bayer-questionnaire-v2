@@ -3,14 +3,14 @@
         <div class="relative h-min">
             <div id="result" >
             <img id="resultImg" src="{{asset('images/'.$image)}}"/>
-            <span id="resultTex" class="absolute top-[5.5%] left-[74%] {{$client->type=="HormonalAcne"?' text-black ' : ' text-white '}}">
+            <span id="resultName" class="absolute top-[5.5%] left-[74%] {{$client->type=="HormonalAcne"?' text-black ' : ' text-white '}}">
                 {{$client->name}}
             </span>
             </div>
-            <span class="absolute top-[63%] left-[7%] w-[53%] h-[33%] text-xs ">
-                @foreach ($client->answer as $a)
-                    - {{$a}}<br>
-                @endforeach
+            <span id="resultTex" class="absolute top-[63%] left-[7%] w-[53%] h-[33%] text-xs ">
+@foreach ($client->answer as $a)
+- {{$a}}<br>
+@endforeach
             </span>
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
@@ -58,10 +58,19 @@
                 ctx.drawImage(img, 0, 0);
                 ctx.fillText('{{$client->name??"-"}}', 740, 110);
 
-                // let i = document.getElementById('resultImg');
+
+                ctx.font = "27px mitr"
+
+                ctx.fillText("- {{$client->answer[0]}}", 70, 1110);
+                @foreach ($client->answer as $i=>$a)
+                ctx.fillText("- {{$a}}", 70, 1110+({{$i}}*50));
+                @endforeach
+
                 let i = document.getElementById('resultImg');
-                let t = document.getElementById('resultTex');
+                let t = document.getElementById('resultName');
+                let t2 = document.getElementById('resultTex');
                 t.classList.add('hidden')
+                t2.classList.add('hidden')
                 i.src=canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
                 data = canvas.toDataURL("image/png").replace(/^data:image\/(png|jpg);base64,/, "");
                 console.log(data)
