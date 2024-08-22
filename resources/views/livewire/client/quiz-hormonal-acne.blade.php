@@ -54,26 +54,36 @@
                         <span>(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
-                        <li><div class="radio btn-ans">
-                            <img src="{{asset('/images/a2-1.png')}}" class="h-full aspect-square absolute top-0 left-0"/> 
-                            <x-checkbox lg wire:model="data.quiz_2.1" id="q-1" value="1" label="สิวอุดตันหัวดำ"> </x-checkbox>
-                        </div></li>
-                        <li><div class="radio btn-ans">
-                            <img src="{{asset('/images/a2-2.png')}}" class="h-full aspect-square absolute top-0 left-0"/> 
-                            <x-checkbox lg wire:model="data.quiz_2.2" id="q-2" value="1" label="สิวอุดตันหัวขาว"> </x-checkbox>
-                        </div></li>
-                        <li><div class="radio btn-ans">
-                            <img src="{{asset('/images/a2-3.png')}}" class="h-full aspect-square absolute top-0 left-0"/> 
-                            <x-checkbox lg wire:model="data.quiz_2.3" id="q-3" value="1" label="สิวตุ่มหนอง"> </x-checkbox>
-                        </div></li>
-                        <li><div class="radio btn-ans">
-                            <img src="{{asset('/images/a2-4.png')}}" class="h-full aspect-square absolute top-0 left-0"/> 
-                            <x-checkbox lg wire:model="data.quiz_2.4" id="q-4" value="1" label="สิวหัวช้าง"> </x-checkbox>
-                        </div></li>
-                        <li><div class="radio btn-ans">
-                            <img src="{{asset('/images/a2-5.png')}}" class="h-full aspect-square absolute top-0 left-0"/> 
-                            <x-checkbox lg wire:model="data.quiz_2.5" id="q-5" value="1" label="สิวผด"> </x-checkbox>
-                        </div></li>
+                        <li>
+                            <div class="relative p-2">
+                                <img src="{{asset('/images/a2-1.png')}}" class="h-full aspect-square absolute top-0 left-0 z-10"/> 
+                                <div class="radio btn-ans"><x-checkbox lg wire:model="data.quiz_2.1" id="q-1" value="1" label="สิวอุดตันหัวดำ"> </x-checkbox></div>
+                            </div>
+                        </li>
+                        <li><div
+                             class="relative p-2">
+                                <img src="{{asset('/images/a2-2.png')}}" class="h-full aspect-square absolute top-0 left-0 z-10"/> 
+                                    <div class="radio btn-ans"><x-checkbox lg wire:model="data.quiz_2.2" id="q-2" value="1" label="สิวอุดตันหัวขาว"> </x-checkbox></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="relative p-2">
+                                <img src="{{asset('/images/a2-3.png')}}" class="h-full aspect-square absolute top-0 left-0 z-10"/> 
+                                <div class="radio btn-ans"><x-checkbox lg wire:model="data.quiz_2.3" id="q-3" value="1" label="สิวตุ่มหนอง"> </x-checkbox></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="relative p-2">
+                                <img src="{{asset('/images/a2-4.png')}}" class="h-full aspect-square absolute top-0 left-0 z-10"/> 
+                                <div class="radio btn-ans"><x-checkbox lg wire:model="data.quiz_2.4" id="q-4" value="1" label="สิวหัวช้าง"> </x-checkbox></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="relative p-2">
+                                <img src="{{asset('/images/a2-5.png')}}" class="h-full aspect-square absolute top-0 left-0 z-10"/> 
+                                <div class="radio btn-ans"><x-checkbox lg wire:model="data.quiz_2.5" id="q-5" value="1" label="สิวผด"> </x-checkbox></div>
+                            </div>
+                        </li>
                     </ul>
                     <div class="text-center">
                         <x-button class="btn-2" wire:click="quiz_2Submit" label="ต่อไป" />

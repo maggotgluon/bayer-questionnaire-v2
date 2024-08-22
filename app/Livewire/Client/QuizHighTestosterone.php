@@ -21,7 +21,7 @@ class QuizHighTestosterone extends Component
         }else{
             dd($client);
         }
-        $this->client->answer=[];
+        // $this->client->answer=[];
         // $this->page=6;
     }
     public function render()
@@ -34,13 +34,18 @@ class QuizHighTestosterone extends Component
         if($this->data['quiz_1']!=3){
             if($this->data['quiz_1']==1){$select[] = 'ประจำเดือนไม่มานานกว่า 35 วัน';}
             if($this->data['quiz_1']==2){$select[] = 'ประจำเดือนยังไม่มา นานเกิน 90 วัน แต่เคยมาปกติ';}
-            // if($this->data['quiz_1']==3){$select[] = 'ประจำเดือนมาปกติ รอบเดือนอยู่ที่ 21-35 วัน';}
             $this->score+=2;
         }else{
+            if($this->data['quiz_1']==3){$select[] = 'ประจำเดือนมาปกติ รอบเดือนอยู่ที่ 21-35 วัน';}
             $this->level="GREEN LEVEL";
         }
         $this->client->answer=$select;
-        $this->next();
+        
+        if($this->client->remark=='change route'){
+            $this->goto(4);
+        }else{
+            $this->next();
+        }
     }
     public function quiz_2Submit(){
         $select = $this->client->answer;

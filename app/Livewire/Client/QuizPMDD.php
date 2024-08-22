@@ -23,7 +23,7 @@ class QuizPMDD extends Component
         }else{
             dd($client);
         }
-        $this->client->answer=[];
+        // $this->client->answer=[];
         // $this->page=9;
     }
 

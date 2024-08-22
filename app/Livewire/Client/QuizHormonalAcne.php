@@ -22,7 +22,7 @@ class QuizHormonalAcne extends Component
         }else{
             dd($client);
         }
-        $this->client->answer=[];
+        // $this->client->answer=[];
         // $this->page=6;
     }
     public function render()
@@ -72,11 +72,6 @@ class QuizHormonalAcne extends Component
     public function quiz_3Submit(){
         $select = $this->client->answer;
         $ans=$this->data['quiz_3'];
-        if($ans==5){
-            $this->client->type='HighTestosterone';
-            $this->client->save();
-            redirect(route('QuizHighTestosterone',$this->client));
-        }
         if($ans!=5){
             if($ans==1){
                 $select[]='ประจำเดือนมา ๆ หาย ๆ เดาใจยากเหมือนคนคุย';
@@ -91,6 +86,11 @@ class QuizHormonalAcne extends Component
                 $select[]='ผมร่วงเหมือนใบไม้แห้ง';
             }
             $this->score+=1;
+
+            $this->client->type='HighTestosterone';
+            $this->client->remark='change route';
+            $this->client->save();
+            redirect(route('QuizHighTestosterone',$this->client));
         }
         
         $this->client->answer=$select;

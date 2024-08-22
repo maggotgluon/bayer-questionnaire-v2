@@ -26,11 +26,11 @@
             @case(2)
                 <section class="h-screen grid grid-rows-[150px,1fr,100px] gap-2 p-6">
                     <div class="text-center">
-                        <span class="text-center">อาการก่อนเป็นประจำเดือน</span>
+                        <span>อาการก่อนเป็นประจำเดือน</span>
                         <h2 class="text-3xl text-center">
                             มนุษย์กลายร่างแบบไหน ก่อนเป็นประจำเดือน
                         </h2>
-                        <span class="text-center text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
+                        <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
                         <li>
@@ -63,11 +63,12 @@
 
             @case(3)
                 <section class="h-screen grid grid-rows-[150px,1fr,100px] gap-2 p-6">
-                    <div>
-                        <h2 class="text-3xl text-center">
+                    <div class="text-center">
+                        <span>อาการก่อนเป็นประจำเดือน</span>
+                        <h2 class="text-3xl">
                             นอกจากอารมณ์ที่แปรปรวนร่างกายเธอรวนบ้างไหม
                         </h2>
-                        <span class="text-center text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
+                        <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
                         <li>
