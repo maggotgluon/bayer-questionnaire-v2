@@ -18,20 +18,19 @@
         </x-slot>
         @endif
         <form wire:submit.prevent="authenticate" class="grid gap-2">
-            <x-input label="Email address" wire:model.lazy="email"/>
+            <x-input label="username" wire:model.lazy="name"/>
             <x-inputs.password label="Password" wire:model.lazy="password"/>
-            <div class="flex justify-between items-center py-2">
+            {{-- <div class="flex justify-between items-center py-2">
                 <x-checkbox label="Remember" wire:model.lazy="remember"/>
                 @if(Route::has('password.request'))
                 <x-button flat label="Forgot your password?" :href="route('password.request')"/>
                 @endif
-            </div>
+            </div> --}}
             <x-slot name="footer">
                 <div class="flex justify-between items-center">
                     <span>
                         @if(env('APP_DEBUG'))
-                        <x-button xl label="Mock" wire:click="$set('email', 'admin@admin.com')"/>
-                        <x-button xl label="Mock" wire:click="$set('password','password')"/>
+                        <x-button xl label="Mock" wire:click="authUser"/>
                         @endif
                     </span>
                     <x-button primary xl label="Sign in" type="submit" wire:click="authenticate"/>

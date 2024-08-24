@@ -17,11 +17,13 @@ class client extends Model
         'progress',
         'type',
         'age',
-        'answer'
+        'answer',
+        'symptom'
     ];
 
     protected $casts = [
-        'answer'=>'array'
+        'answer'=>'array',
+        'symptom'=>'array'
     ];
 
 }

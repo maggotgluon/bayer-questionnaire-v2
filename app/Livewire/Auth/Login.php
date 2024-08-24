@@ -2,13 +2,15 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Login extends Component
 {
     /** @var string */
-    public $email = '';
+    public $name = '';
 
     /** @var string */
     public $password = '';
@@ -17,16 +19,31 @@ class Login extends Component
     public $remember = false;
 
     protected $rules = [
-        'email' => ['required', 'email'],
+        'name' => ['required'],
         'password' => ['required'],
     ];
+    public function authUser(){
+        // dd(Hash::make('gto3000gt'));
+        // Auth::login(User::find(1));
+        $this->validate();
+        // dd($this->validate(),Auth::attempt($this->validate()));
 
+        $user = User::where('name',$this->validate()['name'])->first();
+        dd($user,$user->password);
+        if($user){
+            Auth::login($user);
+            return redirect()->intended(route('home'));
+        }else{
+            $this->addError('name', 'login error');
+        }
+        
+    }
     public function authenticate()
     {
         $this->validate();
-
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-            $this->addError('email', trans('auth.failed'));
+        // dd($this->validate());
+        if (!Auth::attempt(['name' => $this->name, 'password' => $this->password], $this->remember)) {
+            $this->addError('name', trans('auth.failed'));
 
             return;
         }

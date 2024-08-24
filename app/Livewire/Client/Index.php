@@ -3,7 +3,7 @@
 namespace App\Livewire\Client;
 
 use App\Models\client;
-
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class Index extends Component
@@ -50,27 +50,27 @@ class Index extends Component
                     return $key;
                 }
             });
-        // dd($d,$d->count(true),isset($d['a1']),isset($d['a2']),isset($d['a3']));
+        $select=[];
+        isset($d['a1'])?$select['q0-1'][]='a1':$select;
+        isset($d['a2'])?$select['q0-1'][]='a2':$select;
+        isset($d['a3'])?$select['q0-1'][]='a3':$select;
 
+        $this->client->answer=$select;
+        // $this->client->save();
+        // dd($select,$this->client);
         if($d->count() == 1){
             switch (true) {
                 case isset($d['a1']):
-                    # code...
-                    // dd($d['a1']);
                     $this->client->type="PMDD";
                     $this->client->save();
                     redirect(route('QuizPMDD',$this->client));
                     break;
                 case isset($d['a2']):
-                    # code...
-                    // dd($d['a2']);
                     $this->client->type="HormonalAcne";
                     $this->client->save();
                     redirect(route('QuizHormonalAcne',$this->client));
                     break;
                 case isset($d['a3']):
-                    # code...
-                    // dd($d['a3']);
                     $this->client->type="HighTestosterone";
                     $this->client->save();
                     redirect(route('QuizHighTestosterone',$this->client));
@@ -105,7 +105,17 @@ class Index extends Component
         $validatedData = $this->validate([
             'data.quiz_2' => 'required',
         ]);
+
         $d = collect($this->data['quiz_2']);
+        
+        $select=$this->client->answer;
+        isset($d['a1'])?$select['q0-2'][]='a1':$select;
+        isset($d['a2'])?$select['q0-2'][]='a2':$select;
+        isset($d['a3'])?$select['q0-2'][]='a3':$select;
+
+        $this->client->answer=$select;
+        // $this->client->save();
+        // dd($this->client);
         if(isset($d['a1']) || isset($d['a2']) || isset($d['a3'])){
             $this->client->type="HighTestosterone";
             $this->client->save();

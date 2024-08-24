@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('score')->nullable();
             
             $table->string('status')->nullable();
-            $table->string('remark')->nullable();
+            $table->json('symptom')->nullable();
+            $table->json('remark')->nullable();
             
             $table->timestamps();
         });

@@ -8,7 +8,7 @@
             </span>
             </div>
             <span id="resultTex" class="absolute top-[63%] left-[7%] w-[53%] h-[33%] text-xs ">
-@foreach ($client->answer as $a)
+@foreach ($client->symptom as $a)
 - {{$a}}<br>
 @endforeach
             </span>
@@ -63,8 +63,8 @@
 
                 ctx.font = "27px mitr"
 
-                ctx.fillText("- {{$client->answer[0]}}", 70, 1110);
-                @foreach ($client->answer as $i=>$a)
+                ctx.fillText("- {{$client->symptom[0]}}", 70, 1110);
+                @foreach ($client->symptom as $i=>$a)
                 ctx.fillText("- {{$a}}", 70, 1110+({{$i}}*50));
                 @endforeach
 

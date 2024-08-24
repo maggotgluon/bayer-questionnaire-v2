@@ -18,6 +18,9 @@ use App\Livewire\Client\QuizPMDD as QuizPMDD;
 use App\Livewire\Client\QuizHormonalAcne as QuizHormonalAcne;
 use App\Livewire\Client\QuizHighTestosterone as QuizHighTestosterone;
 
+
+use App\Livewire\Admin\Index as adminIndex;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,10 +44,17 @@ Route::get('/result/{client}', clientResult::class)->name('result');
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
+    Route::get('admin', Login::class);
 
     Route::get('register', Register::class)
         ->name('register');
 });
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/client', adminIndex::class)->name('adminClient');
+    Route::get('/admin/report', adminIndex::class)->name('adminReport');
+    Route::get('/admin', adminIndex::class)->name('adminIndex');
+});
+
 
 Route::get('password/reset', Email::class)
     ->name('password.request');
@@ -68,6 +78,15 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', LogoutController::class)
         ->name('logout');
+    Route::get('logout', function(){
+        Auth::logout();
+ 
+        // $request->session()->invalidate();
+    
+        // $request->session()->regenerateToken();
+    
+        return redirect('/');
+    })->name('getlogout');;
 });
 
 

@@ -21,7 +21,7 @@ class QuizHighTestosterone extends Component
         }else{
             dd($client);
         }
-        // $this->client->answer=[];
+        // $this->client->symptom=[];
         // $this->page=6;
     }
     public function render()
@@ -30,7 +30,7 @@ class QuizHighTestosterone extends Component
     }
 
     public function quiz_1Submit(){
-        $select = $this->client->answer;
+        $select = $this->client->symptom;
         if($this->data['quiz_1']!=3){
             if($this->data['quiz_1']==1){$select[] = 'ประจำเดือนไม่มานานกว่า 35 วัน';}
             if($this->data['quiz_1']==2){$select[] = 'ประจำเดือนยังไม่มา นานเกิน 90 วัน แต่เคยมาปกติ';}
@@ -39,7 +39,7 @@ class QuizHighTestosterone extends Component
             if($this->data['quiz_1']==3){$select[] = 'ประจำเดือนมาปกติ รอบเดือนอยู่ที่ 21-35 วัน';}
             $this->level="GREEN LEVEL";
         }
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         
         if($this->client->remark=='change route'){
             $this->goto(4);
@@ -48,7 +48,7 @@ class QuizHighTestosterone extends Component
         }
     }
     public function quiz_2Submit(){
-        $select = $this->client->answer;
+        $select = $this->client->symptom;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
             if($a==1){$select[]='สิวเห่อ สิวผลุบๆ โผล่ๆ เหมือนตัวตุ่น';}
@@ -60,7 +60,7 @@ class QuizHighTestosterone extends Component
                 $this->score+=1;
             }
         }
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         $this->next();
     }
     public function quiz_3Submit(){
@@ -91,7 +91,8 @@ class QuizHighTestosterone extends Component
 
     public function goto($page=null){
         if($page){
-            $this->page=$page;
+            $this->page+=1;
+            // $this->page=$page;
         }else{
             $this->page+=1;
         }

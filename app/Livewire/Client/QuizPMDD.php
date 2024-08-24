@@ -23,7 +23,7 @@ class QuizPMDD extends Component
         }else{
             dd($client);
         }
-        // $this->client->answer=[];
+        // $this->client->symptom=[];
         // $this->page=9;
     }
 
@@ -35,7 +35,7 @@ class QuizPMDD extends Component
     public function quiz_1Submit(){
         
         $ans=$this->ans($this->data['quiz_1']);
-        $select = $this->client->answer;
+        $select = $this->client->symptom;
         foreach($ans as $a){
             // dd($a);
             if($a!=5){
@@ -54,12 +54,13 @@ class QuizPMDD extends Component
                 $select[]='เครียด วิตกกังวล';
             }
             if($a==5){
+                $this->client->lavel="green";
                 $select[]='ไม่มีอาการทางอารมณ์';
             }
         }
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         $this->client->save();
-        // dd($select,$this->client->answer);
+        // dd($select,$this->client->symptom);
 
         
         $this->next();
@@ -67,7 +68,7 @@ class QuizPMDD extends Component
     }
 
     public function quiz_2Submit(){
-        $select=$this->client->answer;
+        $select=$this->client->symptom;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
 
@@ -88,28 +89,30 @@ class QuizPMDD extends Component
             }
 
             if($a==6){
-                $this->level="green";
+                $this->client->lavel="green";
+                $this->client->save();
                 return $this->goto(8);
             }else{
                 $this->score+=1;
             }
         }
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         $this->client->save();
         $this->next();
         // dd($this->data['quiz_2'],$ans);
     }
     public function quiz_3Submit(){
         // $ans=$this->ans($this->data['quiz_3']);
-        $select=$this->client->answer;
+        $select=$this->client->symptom;
         if($this->data['quiz_3']==1){
             $select[]='อาการเหล่านี้เกิดขึ้นก่อนมีประจำเดือนภายใน 1 สัปดาห์';
-            $this->client->answer=$select;
+            $this->client->symptom=$select;
             $this->client->save();
 
             $this->score+=3;
         }else{
-            $this->level="green";
+            $this->client->lavel="green";
+            $this->client->save();
             return $this->goto(8);
         }
         $this->next();
@@ -121,7 +124,8 @@ class QuizPMDD extends Component
         // dd($this->data['quiz_4']);
         switch ($this->data['quiz_4']) {
             case 1:
-                $this->getResult();
+                $this->next();
+                // $this->getResult();
                 break;
             default:
                 $this->next();
@@ -137,6 +141,11 @@ class QuizPMDD extends Component
 
     }
     public function getResult(){
+        if($this->client->lavel="green"){
+            $this->client->status="done";
+            $this->client->save();
+            return redirect(route('result',$this->client));    
+        }
         if($this->score>=7){
             $this->client->lavel="red";
             // dd("ไม่ไหวแล้ว...

@@ -11,8 +11,13 @@
                 <section class="h-screen grid">
                     <div class="p-4 bg-paper rounded-lg text-center flex flex-col justify-center">
                         <h2 class="text-3xl">
+                            @if (client->remark=='change route')
+                            นอกจากสิวแล้ว<br>
+                            เธอยังมีปัญหาอื่นๆ อีก ขอเช็คอีกนิดนะ
+                            @else
                             ประจำเดือนมาๆ หายๆ<br>
                             เดาใจยากเหมือนคนคุย
+                            @endif
                         </h2>
                         <img src="{{asset('images/q3-1.png')}}" class="p-8"/>
 

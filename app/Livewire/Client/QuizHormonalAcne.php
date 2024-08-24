@@ -22,7 +22,7 @@ class QuizHormonalAcne extends Component
         }else{
             dd($client);
         }
-        // $this->client->answer=[];
+        // $this->client->symptom=[];
         // $this->page=6;
     }
     public function render()
@@ -32,19 +32,19 @@ class QuizHormonalAcne extends Component
 
 
     public function quiz_1Submit(){
-        $select = $this->client->answer;
+        $select = $this->client->symptom;
         if($this->data['quiz_1']==1){
             $select[]='สิวเกิดขึ้นในช่วง ก่อนมีประจำเดือน 1 สัปดาห์';
             $this->score+=3;
         }else{
             // $this->level="GREEN LEVEL";
         }
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         $this->next();
     }
     public function quiz_2Submit(){
 
-        $select = $this->client->answer;
+        $select = $this->client->symptom;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
             if($a==1){
@@ -66,11 +66,11 @@ class QuizHormonalAcne extends Component
                 $this->score+=1;
             }
         }
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         $this->next();
     }
     public function quiz_3Submit(){
-        $select = $this->client->answer;
+        $select = $this->client->symptom;
         $ans=$this->data['quiz_3'];
         if($ans!=5){
             if($ans==1){
@@ -93,13 +93,14 @@ class QuizHormonalAcne extends Component
             redirect(route('QuizHighTestosterone',$this->client));
         }
         
-        $this->client->answer=$select;
+        $this->client->symptom=$select;
         $this->next();
     }
     public function quiz_4Submit(){
         switch ($this->data['quiz_4']) {
             case 1:
-                $this->getResult();
+                $this->next();
+                // $this->getResult();
                 break;
             default:
                 $this->next();
