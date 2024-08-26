@@ -33,7 +33,8 @@ class Index extends Component
         // dd($this->data);
         $this->client = client::create([
             'name'=>$this->data['name'],
-            'age'=>$this->data['age']
+            'age'=>$this->data['age'],
+            'member_code'=>'BA'.str_pad( client::count(), 6, '0', STR_PAD_LEFT)
         ]);
         $this->next();
     }

@@ -1,6 +1,24 @@
-<div>
+<div class="flex flex-col gap-2 p-4">
+    <div class="md:col-span-7 flex gap-2 items-end">
+        <x-datetime-picker
+            id="min-max-times-input"
+            without-time
+            label="show data from"
+            placeholder="select date"
+            wire:model.live="datefrom"
+        />
+        <x-datetime-picker
+            id="min-max-times-input"
+            without-time
+            label="show data to"
+            placeholder="select date"
+            wire:model.live="dateto"
+        />
+        <x-button label="download" wire:click="download"/>
+    </div>
+
     Client
-    @foreach ($client as $c)
+    @foreach ($clients as $c)
     <div class="p-2 m-2 bg-gray-100 grid grid-cols-2 gap-2">
         <div class="col-span-2">
             {{$c->name}} {{$c->age}} <br>

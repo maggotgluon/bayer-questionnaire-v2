@@ -19,7 +19,8 @@ class client extends Model
         'age',
         'answer',
         'symptom',
-        'remark'
+        'remark',
+        'member_code'
     ];
 
     protected $casts = [

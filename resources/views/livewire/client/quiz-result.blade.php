@@ -1,6 +1,11 @@
 <div class="bg-gradient-to-b from-[rgba(171,229,65,1)] via-35% via-[rgba(64,196,168,1) ] to-[rgba(2,100,166,1)] w-full grid justify-items-center">
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
+
+        <x-approved-number/>
+        <div class="z-30 absolute bottom-1 right-1 text-xs">
+        {{$client->member_code}}
+        </div>
             <div id="result" >
             <img id="resultImg" src="{{asset('images/'.$image)}}"/>
             <span id="resultName" class="absolute top-[5.5%] left-[74%] {{$client->type=="HormonalAcne"?' text-black ' : ' text-white '}}">

@@ -1,5 +1,6 @@
 <div class="bg-gradient-to-b from-[#FFAD2F] to-[#FF6D58] w-full grid justify-items-center">
     <div class="shadow-lg grid max-w-md w-full">
+        <x-approved-number/>
         @if (env('APP_DEBUG',false))            
             <div class="fixed left-1 top-1">
                 current score : {{$score}}
