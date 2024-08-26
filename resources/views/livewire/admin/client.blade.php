@@ -2,7 +2,12 @@
     Client
     @foreach ($client as $c)
     <div class="p-2 m-2 bg-gray-100 grid grid-cols-2 gap-2">
-        <div class="col-span-2">{{$c->name}} {{$c->age}}</div>
+        <div class="col-span-2">
+            {{$c->name}} {{$c->age}} <br>
+            score : {{$c->score}} <br>
+            level : {{$c->level}} <br>
+            status : {{$c->status}}
+        </div>
         <div class="border-2 border-white p-2">
             <h4 class="text-xl">answer</h4>
             <ul>
