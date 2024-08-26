@@ -98,14 +98,14 @@
                         นอกจากสิวที่เธอเป็น <br>
                         เธอมีอาการอื่นอีกไหม
                         </h2>
-                        {{-- <span>(เลือกได้มากกว่า 1 ข้อ)</span> --}}
+                        <span>(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
-                        <li><div class="radio btn-ans"><x-radio wire:model="data.quiz_3" lg id="q-6" value="1" label="ประจำเดือนมา ๆ หาย ๆ เดาใจยากเหมือนคนคุย"/></div></li>
-                        <li><div class="radio btn-ans"><x-radio wire:model="data.quiz_3" lg id="q-7" value="2" label="หน้ามัน เหมือนหนังปลาทู"/></div></li>
-                        <li><div class="radio btn-ans"><x-radio wire:model="data.quiz_3" lg id="q-8" value="3" label="ขนดก เหมือนผู้ชายมาดแมน"/></div></li>
-                        <li><div class="radio btn-ans"><x-radio wire:model="data.quiz_3" lg id="q-9" value="4" label="ผมร่วงเหมือนใบไม้แห้ง"/></div></li>
-                        <li><div class="radio btn-ans"><x-radio wire:model="data.quiz_3" lg id="q-0" value="5" label="ไม่มีอาการใดๆ โชคดีเหมือนถูกหวย"/></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.1" lg id="q-6" value="1" label="ประจำเดือนมา ๆ หาย ๆ เดาใจยากเหมือนคนคุย"/></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.2" lg id="q-7" value="2" label="หน้ามัน เหมือนหนังปลาทู"/></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.3" lg id="q-8" value="3" label="ขนดก เหมือนผู้ชายมาดแมน"/></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.4" lg id="q-9" value="4" label="ผมร่วงเหมือนใบไม้แห้ง"/></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.5" lg id="q-0" value="5" label="ไม่มีอาการใดๆ โชคดีเหมือนถูกหวย"/></div></li>
                     </ul>
                     <div class="text-center">
                         <x-button class="btn-2" wire:click="quiz_3Submit" label="ต่อไป" />

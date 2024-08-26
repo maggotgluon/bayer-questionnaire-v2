@@ -33,79 +33,116 @@ class QuizHormonalAcne extends Component
 
     public function quiz_1Submit(){
         $select = $this->client->symptom;
+        $answer = $this->client->answer;
+
         if($this->data['quiz_1']==1){
+            $this->client->answer = $answer;
+            $answer['q2-1'][]='a1';
             $select[]='สิวเกิดขึ้นในช่วง ก่อนมีประจำเดือน 1 สัปดาห์';
             $this->score+=3;
         }else{
+            $answer['q2-1'][]='a2';
             // $this->level="GREEN LEVEL";
         }
+        $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->next();
     }
     public function quiz_2Submit(){
 
         $select = $this->client->symptom;
+        $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
             if($a==1){
+                $answer['q2-2'][]='a1';
                 $select[] = 'สิวอุดตันหัวดำ';
             }
             if($a==2){
+                $answer['q2-2'][]='a2';
                 $select[] = 'สิวอุดตันหัวขาว';
             }
             if($a==3){
+                $answer['q2-2'][]='a3';
                 $select[] = 'สิวตุ่มหนอง';
             }
             if($a==4){
+                $answer['q2-2'][]='a4';
                 $select[] = 'สิวหัวช้าง';
             }
             if($a==5){
+                $answer['q2-2'][]='a5';
                 $select[] = 'สิวผด';
             }
             if($a!=5){
                 $this->score+=1;
             }
         }
+        $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->next();
     }
     public function quiz_3Submit(){
         $select = $this->client->symptom;
-        $ans=$this->data['quiz_3'];
-        if($ans!=5){
-            if($ans==1){
+        $answer = $this->client->answer;
+        // $ans=$this->data['quiz_3'];
+        $ans=$this->ans($this->data['quiz_3']);
+
+        foreach($ans as $a){
+            if($a==1){
+                $answer['q2-3'][]='a1';
                 $select[]='ประจำเดือนมา ๆ หาย ๆ เดาใจยากเหมือนคนคุย';
             }
-            if($ans==2){
+            if($a==2){
+                $answer['q2-3'][]='a2';
                 $select[]='หน้ามัน เหมือนหนังปลาทู';
             }
-            if($ans==3){
+            if($a==3){
+                $answer['q2-3'][]='a3';
                 $select[]='ขนดก เหมือนผู้ชายมาดแมน';
             }
-            if($ans==4){
+            if($a==4){
+                $answer['q2-3'][]='a4';
                 $select[]='ผมร่วงเหมือนใบไม้แห้ง';
             }
-            $this->score+=1;
+            if($a==5){
+                $answer['q2-3'][]='a4';
+                $select[]='ไม่มีอาการใดๆ โชคดีเหมือนถูกหวย';
+            }
+            if($a!=5){
+                $this->score+=1;
+                $this->client->type='HighTestosterone';
+            }
+        }
 
-            $this->client->type='HighTestosterone';
-            $this->client->remark='change route';
+        $this->client->symptom = $select;
+        $this->client->answer = $answer;
+        if($this->client->type=='HighTestosterone'){
+            $this->client->remark=['change route'];
             $this->client->save();
+            // dd($this->client->remark);
             redirect(route('QuizHighTestosterone',$this->client));
         }
-        
-        $this->client->symptom=$select;
+        $this->client->save();;
         $this->next();
     }
     public function quiz_4Submit(){
+        $answer = $this->client->answer;
         switch ($this->data['quiz_4']) {
             case 1:
-                $this->next();
-                // $this->getResult();
+                $answer['q2-4'][]='a1';
+                break;
+            case 0:
+                $answer['q2-4'][]='a2';
+                break;
+            case -1:
+                $answer['q2-4'][]='a3';
                 break;
             default:
-                $this->next();
                 break;
         }
+        $this->client->answer = $answer;
+        $this->next();
     }
     public function getResult(){
         if($this->score>=5){

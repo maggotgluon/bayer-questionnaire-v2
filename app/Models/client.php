@@ -18,12 +18,14 @@ class client extends Model
         'type',
         'age',
         'answer',
-        'symptom'
+        'symptom',
+        'remark'
     ];
 
     protected $casts = [
         'answer'=>'array',
-        'symptom'=>'array'
+        'symptom'=>'array',
+        'remark'=>'array'
     ];
 
 }

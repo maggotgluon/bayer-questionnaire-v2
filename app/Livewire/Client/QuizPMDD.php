@@ -3,6 +3,7 @@
 namespace App\Livewire\Client;
 
 use App\Models\client;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class QuizPMDD extends Component
@@ -36,82 +37,102 @@ class QuizPMDD extends Component
         
         $ans=$this->ans($this->data['quiz_1']);
         $select = $this->client->symptom;
+        $answer = $this->client->answer;
+
         foreach($ans as $a){
             // dd($a);
             if($a!=5){
                 $this->score+=1;
             }
             if($a==1){
+                $answer['q1-1'][]='a1';
                 $select[]='มนุษย์ถ้ำจำศีลที่อยากอยู่เงียบ ๆ คนเดียว';
             }
             if($a==2){
+                $answer['q1-1'][]='a2';
                 $select[]='มนุษย์ดราม่า น้ำตาไหลเหมือนน้ำจะท่วม';
             }
             if($a==3){
+                $answer['q1-1'][]='a3';
                 $select[]='มนุษย์ขี้วีน โมโหฉ่ำเหมือนพายุเข้า';
             }
             if($a==4){
+                $answer['q1-1'][]='a4';
                 $select[]='เครียด วิตกกังวล';
             }
             if($a==5){
+                $answer['q1-1'][]='a5';
                 $this->client->lavel="green";
                 $select[]='ไม่มีอาการทางอารมณ์';
             }
         }
+        $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        // dd($select,$this->client->symptom);
-
         
         $this->next();
-        // dd($this->data['quiz_1'],$ans,$this->score);
     }
 
     public function quiz_2Submit(){
         $select=$this->client->symptom;
+        $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
 
             if($a==1){
+                $answer['q1-2'][]='a1';
                 $select[]='นอนไม่หลับ ร่างกายกระสับกระส่าย';
             }
             if($a==2){
+                $answer['q1-2'][]='a2';
                 $select[]='ตัวบวม หน้าบวมเหมือนลูกโป่งเดินได้';
             }
             if($a==3){
+                $answer['q1-2'][]='a3';
                 $select[]='ไม่อยากอาหาร เหมือนคนอกหัก';
             }
             if($a==4){
+                $answer['q1-2'][]='a4';
                 $select[]='เจ็บเต้านม';
             }
             if($a==5){
+                $answer['q1-2'][]='a5';
                 $select[]='ปวดกล้ามเนื้อ เหมือนโดนทับ';
             }
 
             if($a==6){
+                $answer['q1-2'][]='a6';
                 $this->client->lavel="green";
-                $this->client->save();
-                return $this->goto(8);
             }else{
                 $this->score+=1;
             }
         }
+        $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        $this->next();
+        if($this->client->lavel="green"){            
+            return $this->goto(8);
+        }else{
+            $this->next();
+        }
         // dd($this->data['quiz_2'],$ans);
     }
     public function quiz_3Submit(){
         // $ans=$this->ans($this->data['quiz_3']);
         $select=$this->client->symptom;
+        $answer = $this->client->answer;
         if($this->data['quiz_3']==1){
+            $answer['q1-3'][]='a1';
             $select[]='อาการเหล่านี้เกิดขึ้นก่อนมีประจำเดือนภายใน 1 สัปดาห์';
+            $this->client->answer = $answer;
             $this->client->symptom=$select;
             $this->client->save();
 
             $this->score+=3;
         }else{
+            $answer['q1-3'][]='a2';
             $this->client->lavel="green";
+            $this->client->answer = $answer;
             $this->client->save();
             return $this->goto(8);
         }
@@ -122,22 +143,22 @@ class QuizPMDD extends Component
         // dd($this->client);
         // $ans=$this->ans($this->data['quiz_4']);
         // dd($this->data['quiz_4']);
+        $answer = $this->client->answer;
         switch ($this->data['quiz_4']) {
             case 1:
-                $this->next();
-                // $this->getResult();
+                $answer['q1-4'][]='a1';
+                break;
+            case 0:
+                $answer['q1-4'][]='a2';
+                break;
+            case -1:
+                $answer['q1-4'][]='a3';
                 break;
             default:
-                $this->next();
                 break;
         }
-        // foreach($ans as $a){
-        //     if($a==6){
-        //         // $this->level="GREEN LEVEL";
-        //     }else{
-        //         // $this->score+=1;
-        //     }
-        // }
+        $this->client->answer = $answer;
+        $this->next();
 
     }
     public function getResult(){
@@ -146,27 +167,18 @@ class QuizPMDD extends Component
             $this->client->save();
             return redirect(route('result',$this->client));    
         }
+
         if($this->score>=7){
             $this->client->lavel="red";
-            // dd("ไม่ไหวแล้ว...
-            // ทุกอย่างเกินที่เธอจะรับไหว
-            // ใช่ไหม");
         }elseif($this->score>=3){
             $this->client->lavel="yellow";
-            // dd('level yellow');
-            // dd("เพราะคิดว่าฮอร์โมน
-            // เปลี่ยนแปลงใช่ไหม
-            // อารมณ์ที่เปลี่ยนไป");
         }elseif($this->score<=2){
             $this->client->lavel="green";
-            // dd('level green');
-            // dd("เธอเป็นคนธรรมดา
-            // แต่อย่าชะล่าใจกับการไม่เปลี่ยนแปลง");
         }
+
         $this->client->status="done";
         $this->client->save();
         return redirect(route('result',$this->client));
-        dd($this->client);
     }
 
     public function goto($page=null){

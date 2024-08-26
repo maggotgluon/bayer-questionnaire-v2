@@ -18,8 +18,8 @@ use App\Livewire\Client\QuizPMDD as QuizPMDD;
 use App\Livewire\Client\QuizHormonalAcne as QuizHormonalAcne;
 use App\Livewire\Client\QuizHighTestosterone as QuizHighTestosterone;
 
-
 use App\Livewire\Admin\Index as adminIndex;
+use App\Livewire\Admin\Client as adminClient;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ Route::middleware('guest')->group(function () {
         ->name('register');
 });
 Route::middleware('auth')->group(function () {
-    Route::get('/admin/client', adminIndex::class)->name('adminClient');
+    Route::get('/admin/client', adminClient::class)->name('adminClient');
     Route::get('/admin/report', adminIndex::class)->name('adminReport');
     Route::get('/admin', adminIndex::class)->name('adminIndex');
 });
