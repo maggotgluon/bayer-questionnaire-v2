@@ -62,8 +62,8 @@ class QuizPMDD extends Component
             }
             if($a==5){
                 $answer['q1-1'][]='a5';
-                $this->client->lavel="green";
                 $select[]='ไม่มีอาการทางอารมณ์';
+                $this->client->level="green";
             }
         }
         $this->client->answer = $answer;
@@ -78,7 +78,6 @@ class QuizPMDD extends Component
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
         foreach($ans as $a){
-
             if($a==1){
                 $answer['q1-2'][]='a1';
                 $select[]='นอนไม่หลับ ร่างกายกระสับกระส่าย';
@@ -99,10 +98,10 @@ class QuizPMDD extends Component
                 $answer['q1-2'][]='a5';
                 $select[]='ปวดกล้ามเนื้อ เหมือนโดนทับ';
             }
-
             if($a==6){
                 $answer['q1-2'][]='a6';
-                $this->client->lavel="green";
+                $select[]='ยังดีอยู่...ที่ร่างกายเหมือนเดิมไม่มีเปลี่ยนแปลง';
+                $this->client->level="green";
             }else{
                 $this->score+=1;
             }
@@ -110,7 +109,7 @@ class QuizPMDD extends Component
         $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        if($this->client->lavel="green"){            
+        if($this->client->level=="green"){            
             return $this->goto(8);
         }else{
             $this->next();
@@ -131,7 +130,7 @@ class QuizPMDD extends Component
             $this->score+=3;
         }else{
             $answer['q1-3'][]='a2';
-            $this->client->lavel="green";
+            $this->client->level="green";
             $this->client->answer = $answer;
             $this->client->save();
             return $this->goto(8);
@@ -162,18 +161,18 @@ class QuizPMDD extends Component
 
     }
     public function getResult(){
-        if($this->client->lavel="green"){
+        if($this->client->level=="green"){
             $this->client->status="done";
             $this->client->save();
             return redirect(route('result',$this->client));    
         }
 
         if($this->score>=7){
-            $this->client->lavel="red";
+            $this->client->level="red";
         }elseif($this->score>=3){
-            $this->client->lavel="yellow";
+            $this->client->level="yellow";
         }elseif($this->score<=2){
-            $this->client->lavel="green";
+            $this->client->level="green";
         }
 
         $this->client->status="done";

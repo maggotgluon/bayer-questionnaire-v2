@@ -146,13 +146,13 @@ class QuizHormonalAcne extends Component
     }
     public function getResult(){
         if($this->score>=5){
-            $this->client->lavel="red";
+            $this->client->level="red";
             // dd("result 1 level red");
         }elseif($this->score>=3){
-            $this->client->lavel="yellow";
+            $this->client->level="yellow";
             // dd("result 2 level yellow");
         }elseif($this->score<=2){
-            $this->client->lavel="green";
+            $this->client->level="green";
             // dd("result 3 level green");
         }
 

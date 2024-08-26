@@ -61,11 +61,14 @@
                 ctx.fillText('{{$client->name??"-"}}', 740, 110);
 
 
-                ctx.font = "27px mitr"
+                ctx.font = "24px mitr"
 
-                ctx.fillText("- {{$client->symptom[0]}}", 70, 1110);
+                // ctx.fillText("-{{$client->symptom[0]}}", 50, 1110);
+
                 @foreach ($client->symptom as $i=>$a)
-                ctx.fillText("- {{$a}}", 70, 1110+({{$i}}*50));
+                    
+                    ctx.fillText("-{{$a}}", 50, 1110+({{$i}}*70));
+                    
                 @endforeach
 
                 let i = document.getElementById('resultImg');

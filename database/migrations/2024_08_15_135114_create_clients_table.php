@@ -20,7 +20,7 @@ return new class extends Migration
             $table->json('answer')->nullable();
 
             $table->string('type')->nullable();
-            $table->string('lavel')->nullable();
+            $table->string('level')->nullable();
             $table->string('score')->nullable();
             
             $table->string('status')->nullable();

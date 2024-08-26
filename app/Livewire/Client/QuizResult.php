@@ -41,7 +41,7 @@ class QuizResult extends Component
                 break;
         }
 
-        switch ($client->lavel) {
+        switch ($client->level) {
             case 'green':
                 $this->image.='1.png';
                 break;

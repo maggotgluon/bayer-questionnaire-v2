@@ -2,8 +2,9 @@
     <div class="shadow-lg grid max-w-md w-full">
         @if (env('APP_DEBUG',false))            
             <div class="fixed left-1 top-1">
-                <x-button label="back" wire:click="back()" />
-                <x-button label="next" wire:click="next()" />
+                current score : {{$score}}
+                {{-- <x-button label="back" wire:click="back()" />
+                <x-button label="next" wire:click="next()" /> --}}
             </div>
         @endif
         @switch($page)

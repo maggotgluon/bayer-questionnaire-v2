@@ -96,11 +96,11 @@ class QuizHighTestosterone extends Component
     }
     public function getResult(){
         if($this->score>=4){
-            $this->client->lavel="red";
+            $this->client->level="red";
         }elseif($this->score=3){
-            $this->client->lavel="yellow";
+            $this->client->level="yellow";
         }elseif($this->score<=2){
-            $this->client->lavel="green";
+            $this->client->level="green";
         }
         $this->client->status="done";
         $this->client->save();
