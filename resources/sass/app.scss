@@ -284,3 +284,18 @@
 .btn-text-pink{
     color: #ED048C;
 }
+
+.bg{
+    &-red{
+        background-color: rgba(255, 101, 101, 0.5);    
+    }
+    &-yellow{
+        background-color: rgba(255, 255, 120, 0.5);    
+    }
+    &-green{
+        background-color: rgba(129, 255, 129, 0.5);    
+    }
+    &-{
+        background-color: rgba(114, 114, 114, 0.5);
+    }
+}

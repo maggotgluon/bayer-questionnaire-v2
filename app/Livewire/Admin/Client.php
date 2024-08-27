@@ -7,34 +7,50 @@ use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Date;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Client extends Component
 {
-    public $clients;
+    use WithPagination;
+
+    // public $clients;
+    public $filter;
     public $datefrom;
     public $dateto;
 
     public function mount(){
-        $this->clients=ModelsClient::all();
+        $this->filter=[
+            'show'=>10,
+            'search'=>null,
+            'type'=>null,
+            'status'=>'all'
+        ];
+        // $this->clients=ModelsClient::all();
     }
     public function render()
     {
-
-        $this->clients=ModelsClient::all();
-        $this->clients=$this->clients->when($this->datefrom,function($c,$value){
-            // dd('from',$c,$value);
+        return view('livewire.admin.client',[
+            'clients'=>$this->client()->paginate($this->filter['show'])
+        ])->extends('layouts.admin');
+    }
+    public function client(){
+        return ModelsClient::when($this->datefrom,function($c,$value){
             return $c->where('created_at','>=',$value);
         })->when($this->dateto,function($c,$value){
-            // dd('to',$c);
             return $c->where('created_at','<',Carbon::create($value)->addDay(1));
-        });
-        return view('livewire.admin.client')->extends('layouts.admin');
+        })->when($this->filter['status']!='all',function($c,$value){
+            return $c->where('status',$this->filter['status']=='null'?null:$this->filter['status']);
+        })->when($this->filter['type'],function($c,$value){
+            return $c->where('type',$value);
+        }); 
     }
     public function download(){
         $now = Carbon::now()->toDateTimeString();
         // dd($now);
         $fileName = 'answer-'.$now.'.csv';
-        $qa = $this->clients->where('status','done');
+        $qa = $this->client()->get();
+
+        // dd()
         
         $headers = array(
             "Content-type"        => "text/csv",
@@ -53,7 +69,7 @@ class Client extends Component
             foreach ($qa as $q) {
                 $row['id'] = $q->id;
                 $row['name'] = $q->name;
-                $row['age'] = $q->ages;
+                $row['age'] = $q->age;
                 $row['type'] = $q->type;
                 $row['level'] = $q->level;
                 $row['score'] = $q->score;
@@ -62,7 +78,7 @@ class Client extends Component
                 $row['status'] = $q->status;
                 
                 $row['created_at']  = $q->created_at??"-";
-                dd($q,$row);
+                // dd($q,$row);
                 
 
                 fputcsv($file, array($row['id'], $row['name'], $row['age'], $row['type'], $row['level'], $row['score'], $row['answer'],$row['symptom'],$row['status'],$row['created_at']));

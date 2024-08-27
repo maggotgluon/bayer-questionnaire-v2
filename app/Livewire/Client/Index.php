@@ -14,10 +14,10 @@ class Index extends Component
 
     public function mount(){
         // $this->page=5;
-        if(env('APP_DEBUG',false)){
-            $this->data['name']=fake()->name();
-            $this->data['age']=fake()->randomDigitNotZero()*10;
-        }
+        // if(env('APP_DEBUG',false)){
+        //     $this->data['name']=fake()->name();
+        //     $this->data['age']=fake()->randomDigitNotZero()*10;
+        // }
         
     }
     public function render()
