@@ -1,5 +1,5 @@
-<div class="grid gap-2 grid-cols-7 p-4">
-    <div class="md:col-span-7 flex gap-2 items-end">
+<div class="grid gap-2 md:grid-cols-7 grid-cols-2 p-4 mt-16 md:mt-auto">
+    <div class="col-span-2 md:col-span-7 flex gap-2 items-end h-min ">
         <x-datetime-picker
             id="min-max-times-input"
             without-time
@@ -21,9 +21,9 @@
     <span class="col-span-2">Share</span> --}}
 
 
-    <span class="col-span-2 text-right">
+    <span class="md:col-span-2 text-right p-4 bg-gray-100 rounded-xl">
         Total User
-        <div class="text-4xl font-md relative">
+        <div class="text-6xl font-md relative m-4">
         {{$clients->where('status','done')->count()}}
         <span class="text-sm absolute bottom-0 left-full">
         /{{$clients->count()}}
@@ -31,82 +31,132 @@
         </div>
 
     </span>
-    <div class="col-span-5">Overall</div>
+    <div class="md:col-span-5 p-4 bg-gray-100 rounded-xl">
+        Overall
+        <ul>
+            <li>
+                <div class="font-md relative text-left">
+                    PMDD : 
+                    <span class="relative">
+                    {{$clients->where('type','PMDD')->where('status','done')->count()}}
+                    <div class="text-2xs absolute bottom-0 left-full">
+                    /{{$clients->where('type','PMDD')->count()}}
+                    </div>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="font-md relative text-left">
+                    Hormonal Acne : 
+                    <span class="relative">
+                    {{$clients->where('type','HormonalAcne')->where('status','done')->count()}}
+                    <div class="text-2xs absolute bottom-0 left-full">
+                    /{{$clients->where('type','HormonalAcne')->count()}}
+                    </div>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="font-md relative text-left">
+                    High Testosterone : 
+                    <span class="relative">
+                    {{$clients->where('type','HighTestosterone')->where('status','done')->count()}}
+                    <div class="text-2xs absolute bottom-0 left-full">
+                    /{{$clients->where('type','HighTestosterone')->count()}}
+                    </div>
+                    </span>
+                </div>
+            </li>
+        </ul>
+
+    </div>
 
     <div ></div>
-    <div class="col-span-2 p-4">
+    <div class="col-span-2 p-4 bg-gray-100 rounded-xl">
         PMDD
-        <div class="text-4xl font-md relative text-right">
-            {{$clients->where('type','PMDD')->where('status','done')->count()}}
-            <div class="text-sm absolute bottom-0 left-full">
-            /{{$clients->where('type','PMDD')->count()}}
-            </div>
-        </div>
         <ul>
-            <li>Level GREEN : {{$clients->where('type','PMDD')->where('status','done')->where('level','green')->count()}}</li>
-            <li>Level YELLOW : {{$clients->where('type','PMDD')->where('status','done')->where('level','yellow')->count()}}</li>
-            <li>Level RED : {{$clients->where('type','PMDD')->where('status','done')->where('level','red')->count()}}</li>
+            @php
+                $clientPMDD = $clients->where('type','PMDD')->where('status','done');
+                $totalPMDD = $clientPMDD->count();
+                $totalPMDD_green = $clientPMDD->where('level','green')->count();
+                $totalPMDD_yellow = $clientPMDD->where('level','yellow')->count();
+                $totalPMDD_red = $clientPMDD->where('level','red')->count();
+            @endphp
+            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalPMDD_green}} <span class="float-right">{{$totalPMDD_green==0?0:(float)($totalPMDD_green / $totalPMDD)*100}} %</span></li>
+            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalPMDD_yellow}} <span class="float-right">{{$totalPMDD_yellow==0?0:(float)($totalPMDD_yellow / $totalPMDD)*100}} %</span></li>
+            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalPMDD_red}} <span class="float-right">{{$totalPMDD_red==0?0:(float)($totalPMDD_red / $totalPMDD)*100}} %</span></li>
         </ul>
 
     </div>
-    <div class="col-span-2 p-4">
+    <div class="col-span-2 p-4 bg-gray-100 rounded-xl">
         Hormonal Acne
-        <div class="text-4xl font-md relative text-right">
-            {{$clients->where('type','HormonalAcne')->where('status','done')->count()}}
-            <div class="text-sm absolute bottom-0 left-full">
-            /{{$clients->where('type','HormonalAcne')->count()}}
-            </div>
-        </div>
         <ul>
-            <li>Level GREEN :  {{$clients->where('type','HormonalAcne')->where('status','done')->where('level','green')->count()}}</li>
-            <li>Level YELLOW :  {{$clients->where('type','HormonalAcne')->where('status','done')->where('level','yellow')->count()}}</li>
-            <li>Level RED :  {{$clients->where('type','HormonalAcne')->where('status','done')->where('level','red')->count()}}</li>
+            @php
+                $clientHormonalAcne = $clients->where('type','HormonalAcne')->where('status','done');
+                $totalHormonalAcne = $clientHormonalAcne->count();
+                $totalHormonalAcne_green = $clientHormonalAcne->where('level','green')->count();
+                $totalHormonalAcne_yellow = $clientHormonalAcne->where('level','yellow')->count();
+                $totalHormonalAcne_red = $clientHormonalAcne->where('level','red')->count();
+            @endphp
+            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalHormonalAcne_green}} <span class="float-right">{{$totalHormonalAcne_green==0?0:(float)($totalHormonalAcne_green / $totalHormonalAcne)*100}} %</span></li>
+            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalHormonalAcne_yellow}} <span class="float-right">{{$totalHormonalAcne_yellow==0?0:(float)($totalHormonalAcne_yellow / $totalHormonalAcne)*100}} %</span></li>
+            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalHormonalAcne_red}} <span class="float-right">{{$totalHormonalAcne_red==0?0:(float)($totalHormonalAcne_red / $totalHormonalAcne)*100}} %</span></li>
+
         </ul>
     </div>
-    <div class="col-span-2 p-4">
+    <div class="col-span-2 p-4 bg-gray-100 rounded-xl">
         High Testosterone
-        <div class="text-4xl font-md relative text-right">
-            {{$clients->where('type','HighTestosterone')->where('status','done')->count()}}
-            <div class="text-sm absolute bottom-0 left-full">
-            /{{$clients->where('type','HighTestosterone')->count()}}
-            </div>
-        </div>
         <ul>
-            <li>Level GREEN :  {{$clients->where('type','HighTestosterone')->where('status','done')->where('level','green')->count()}}</li>
-            <li>Level YELLOW :  {{$clients->where('type','HighTestosterone')->where('status','done')->where('level','yellow')->count()}}</li>
-            <li>Level RED :  {{$clients->where('type','HighTestosterone')->where('status','done')->where('level','red')->count()}}</li>
+            @php
+                $clientHighTestosterone = $clients->where('type','HighTestosterone')->where('status','done');
+                $totalHighTestosterone = $clientHighTestosterone->count();
+                $totalHighTestosterone_green = $clientHighTestosterone->where('level','green')->count();
+                $totalHighTestosterone_yellow = $clientHighTestosterone->where('level','yellow')->count();
+                $totalHighTestosterone_red = $clientHighTestosterone->where('level','red')->count();
+            @endphp
+            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalHighTestosterone_green}} <span class="float-right">{{$totalHighTestosterone_green==0?0:(float)($totalHighTestosterone_green / $totalHighTestosterone)*100}} %</span></li>
+            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalHighTestosterone_yellow}} <span class="float-right">{{$totalHighTestosterone_yellow==0?0:(float)($totalHighTestosterone_yellow / $totalHighTestosterone)*100}} %</span></li>
+            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalHighTestosterone_red}} <span class="float-right">{{$totalHighTestosterone_red==0?0:(float)($totalHighTestosterone_red / $totalHighTestosterone)*100}} %</span></li>
+
         </ul>
     </div>
 
-    <div class="col-span-7 p-4">
+    <div class="md:col-span-7 p-4  bg-gray-100 rounded-xl">
         Ages
         <ul>
             <li>
-                Under 10
-                {{$clients->wherebetween('age',[0,10])->count()}}
+                Under 10 : 
+                <span>{{$clients->wherebetween('age',[0,10])->count()}}</span>
             </li>
             <li>
-                11-20
-                {{$clients->wherebetween('age',[11,20])->count()}}
+                11-20 : 
+                <span>{{$clients->wherebetween('age',[11,20])->count()}}</span>
             </li>
             <li>
-                21-30
-                {{$clients->wherebetween('age',[21,30])->count()}}
+                21-30 : 
+                <span>{{$clients->wherebetween('age',[21,30])->count()}}</span>
             </li>
             <li>
-                31-40
-                {{$clients->wherebetween('age',[31,40])->count()}}
+                31-40 : 
+                <span>{{$clients->wherebetween('age',[31,40])->count()}}</span>
             </li>
             <li>
-                41-50
-                {{$clients->wherebetween('age',[41,50])->count()}}
+                41-50 : 
+                <span>{{$clients->wherebetween('age',[41,50])->count()}}</span>
             </li>
             <li>
-                Over 51
-                {{$clients->wherebetween('age',[51,100])->count()}}
+                Over 51 : 
+                <span>{{$clients->wherebetween('age',[51,100])->count()}}</span>
             </li>
         </ul>
     </div>
 
-    {{-- <div class="col-span-7 p-4">Visitor</div> --}}
+    <div class="md:col-span-7 p-4 bg-gray-100 rounded-xl">
+        @foreach ( $clients->unique('created_at')->pluck('created_at') as $date )
+        @php
+            $clientToday = $clients->wherebetween('created_at',[$date->toDateString(),$date->addDay(1)->toDateString()]);
+        @endphp
+            {{$date->toDateString()}} : {{$clientToday->where('status','done')->count()}} / {{$clientToday->count()}}<br>
+        @endforeach
+    </div>
 </div>

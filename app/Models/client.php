@@ -24,6 +24,7 @@ class client extends Model
     ];
 
     protected $casts = [
+        'created_at'=>'date',
         'answer'=>'array',
         'symptom'=>'array',
         'remark'=>'array'

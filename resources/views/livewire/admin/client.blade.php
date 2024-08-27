@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-2 p-4">
+<div class="flex flex-col gap-2 p-4 mt-8 md:mt-auto">
     <div class="md:col-span-7 flex gap-2 items-end">
         <x-datetime-picker
             id="min-max-times-input"
@@ -19,7 +19,7 @@
 
     Client
     
-    <div class="flex justify-left">
+    <div class="flex gap-2 justify-left">
         <x-select
             label="Select Status"
             placeholder="Select one status"
