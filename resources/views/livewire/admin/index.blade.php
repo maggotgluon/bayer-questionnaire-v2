@@ -167,7 +167,7 @@
     <div class="col-span-3 md:col-span-7 p-4  bg-gray-100 rounded-xl">
 
         Ages
-        <div class="max-h-[400px]">
+        <div class="max-h-[50vh]">
         <livewire:livewire-column-chart
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :column-chart-model="$ages_chart"
@@ -203,7 +203,7 @@
 
     <div class="col-span-3 md:col-span-7 p-4 bg-gray-100 rounded-xl">
         Daly Active User
-        <div class="max-h-[400px]">
+        <div class="max-h-[50vh]">
         <livewire:livewire-line-chart
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :line-chart-model="$date_chart"

@@ -54,6 +54,7 @@
             wire:model.live="filter.show"
         />
     </div>
+    <div class="pb-24">
     @foreach ($clients as $c)
 
     <div class="p-2 md:p-4 md:m-2 bg-gray-100 grid grid-cols-2 gap-2 rounded-xl relative overflow-hidden bg-{{$c->type}}">
@@ -94,7 +95,8 @@
         @endisset
     </div>
     @endforeach
-    <div class="fixed bottom-0 w-full h-min">
+    </div>
+    <div class="fixed bottom-1 left-1 md:left-auto right-1 w-11/12 md:w-auto h-min">
         {{ $clients->links() }}
     </div>
 </div>
