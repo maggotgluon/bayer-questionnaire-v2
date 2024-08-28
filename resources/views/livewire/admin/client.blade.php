@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-2 p-4 mt-8 md:mt-auto">
+<div class="flex flex-col gap-2 p-2 md:p-4 mt-8 md:mt-auto">
     <div class="md:col-span-7 flex gap-2 items-end">
         <x-datetime-picker
             id="min-max-times-input"
@@ -19,7 +19,7 @@
 
     Client
     
-    <div class="flex gap-2 justify-left">
+    <div class="flex gap-2 justify-left items-end">
         <x-select
             label="Select Status"
             placeholder="Select one status"
@@ -56,7 +56,7 @@
     </div>
     @foreach ($clients as $c)
 
-    <div class="p-4 m-2 bg-gray-100 grid grid-cols-2 gap-2 rounded-xl relative overflow-hidden">
+    <div class="p-2 md:p-4 md:m-2 bg-gray-100 grid grid-cols-2 gap-2 rounded-xl relative overflow-hidden">
         <span class="bg-{{$c->level}} absolute w-2 h-full"></span>
         <h2 class="col-span-2">{{$c->name}} {{$c->age}} </h2>
         <div>

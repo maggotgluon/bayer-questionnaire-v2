@@ -21,8 +21,8 @@
     <span class="col-span-2">Share</span> --}}
 
 
-    <span class="md:col-span-2 text-right p-4 bg-gray-100 rounded-xl">
-        Total User
+    <span class="col-span-2 text-right p-4 bg-gray-100 rounded-xl ">
+        <h2 class="col-span-2">Total User</h2>
         <div class="text-6xl font-md relative m-4">
         {{$clients->where('status','done')->count()}}
         <span class="text-sm absolute bottom-0 left-full">
@@ -31,8 +31,15 @@
         </div>
 
     </span>
-    <div class="md:col-span-5 p-4 bg-gray-100 rounded-xl">
-        Overall
+    <div class="col-span-2 md:col-span-5 p-4 bg-gray-100 rounded-xl grid grid-cols-2">
+        
+        <h2 class="col-span-2">Overall</h2>
+        <div>
+        <livewire:livewire-pie-chart
+            {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
+            :pie-chart-model="$overall_chart"
+        />
+        </div>
         <ul>
             <li>
                 <div class="font-md relative text-left">
@@ -72,7 +79,7 @@
     </div>
 
     <div ></div>
-    <div class="col-span-2 p-4 bg-gray-100 rounded-xl">
+    <div class="col-span-2 p-4 bg-green-200 rounded-xl">
         PMDD
         <ul>
             @php
@@ -88,7 +95,7 @@
         </ul>
 
     </div>
-    <div class="col-span-2 p-4 bg-gray-100 rounded-xl">
+    <div class="col-span-2 p-4 bg-red-200 rounded-xl">
         Hormonal Acne
         <ul>
             @php
@@ -104,7 +111,7 @@
 
         </ul>
     </div>
-    <div class="col-span-2 p-4 bg-gray-100 rounded-xl">
+    <div class="col-span-2 p-4 bg-orange-200 rounded-xl">
         High Testosterone
         <ul>
             @php
@@ -122,8 +129,13 @@
     </div>
 
     <div class="md:col-span-7 p-4  bg-gray-100 rounded-xl">
+
         Ages
-        <ul>
+        <livewire:livewire-column-chart
+            {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
+            :column-chart-model="$ages_chart"
+        />
+        {{-- <ul>
             <li>
                 Under 10 : 
                 <span>{{$clients->wherebetween('age',[0,10])->count()}}</span>
@@ -148,15 +160,20 @@
                 Over 51 : 
                 <span>{{$clients->wherebetween('age',[51,100])->count()}}</span>
             </li>
-        </ul>
+        </ul> --}}
     </div>
 
     <div class="md:col-span-7 p-4 bg-gray-100 rounded-xl">
-        @foreach ( $clients->unique('created_at')->pluck('created_at') as $date )
+        Daly Active User
+        <livewire:livewire-line-chart
+            {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
+            :line-chart-model="$date_chart"
+        />
+        {{-- @foreach ( $clients->unique('created_at')->pluck('created_at') as $date )
         @php
             $clientToday = $clients->wherebetween('created_at',[$date->toDateString(),$date->addDay(1)->toDateString()]);
         @endphp
             {{$date->toDateString()}} : {{$clientToday->where('status','done')->count()}} / {{$clientToday->count()}}<br>
-        @endforeach
+        @endforeach --}}
     </div>
 </div>

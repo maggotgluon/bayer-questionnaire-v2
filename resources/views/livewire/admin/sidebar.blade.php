@@ -1,11 +1,12 @@
 <div class="w-full relative
     bg-gradient-to-t from-indigo-900 to-emerald-600">
     <div class="md:fixed flex gap-2 items-center md:flex-col z-50 w-full md:w-[250px] md:h-full
+    flex-wrap
     bg-gradient-to-t md:bg-transparent from-indigo-900 to-emerald-600">
-        <h2 class="text-2xl text-center py-4">Dashboard</h2>
-        <x-button xl white label="Overview" :href="route('adminIndex')" 
+        <h2 class="text-2xl text-center py-4 w-full">Dashboard</h2>
+        <x-button class="-mb-2" xl white label="Overview" :href="route('adminIndex')" 
             flat="{{ url()->current() == route('adminIndex')?0:1 }}" />
-        <x-button xl white label="User" :href="route('adminClient')"
+        <x-button class="-mb-2" xl white label="User" :href="route('adminClient')"
             flat="{{ url()->current() == route('adminClient')?0:1 }}" />
         {{-- <div class="text-center py-6">
             <x-button sm label="Download Report"/>
