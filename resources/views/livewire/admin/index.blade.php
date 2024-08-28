@@ -89,9 +89,21 @@
                 $totalPMDD_yellow = $clientPMDD->where('level','yellow')->count();
                 $totalPMDD_red = $clientPMDD->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalPMDD_green}} <span class="float-right">{{$totalPMDD_green==0?0:(float)($totalPMDD_green / $totalPMDD)*100}} %</span></li>
-            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalPMDD_yellow}} <span class="float-right">{{$totalPMDD_yellow==0?0:(float)($totalPMDD_yellow / $totalPMDD)*100}} %</span></li>
-            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalPMDD_red}} <span class="float-right">{{$totalPMDD_red==0?0:(float)($totalPMDD_red / $totalPMDD)*100}} %</span></li>
+            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalPMDD_green}} 
+                <span class="float-right">
+                    {{round( $totalPMDD_green==0?0:(float)($totalPMDD_green / $totalPMDD)*100 , 2)}} %
+                </span>
+            </li>
+            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalPMDD_yellow}} 
+                <span class="float-right">
+                    {{round( $totalPMDD_yellow==0?0:(float)($totalPMDD_yellow / $totalPMDD)*100 , 2)}} %
+                </span>
+            </li>
+            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalPMDD_red}} 
+                <span class="float-right">
+                    {{round( $totalPMDD_red==0?0:(float)($totalPMDD_red / $totalPMDD)*100 , 2)}} %
+                </span>
+            </li>
         </ul>
 
     </div>
@@ -105,9 +117,21 @@
                 $totalHormonalAcne_yellow = $clientHormonalAcne->where('level','yellow')->count();
                 $totalHormonalAcne_red = $clientHormonalAcne->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalHormonalAcne_green}} <span class="float-right">{{$totalHormonalAcne_green==0?0:(float)($totalHormonalAcne_green / $totalHormonalAcne)*100}} %</span></li>
-            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalHormonalAcne_yellow}} <span class="float-right">{{$totalHormonalAcne_yellow==0?0:(float)($totalHormonalAcne_yellow / $totalHormonalAcne)*100}} %</span></li>
-            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalHormonalAcne_red}} <span class="float-right">{{$totalHormonalAcne_red==0?0:(float)($totalHormonalAcne_red / $totalHormonalAcne)*100}} %</span></li>
+            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalHormonalAcne_green}} 
+                <span class="float-right">
+                    {{round( $totalHormonalAcne_green==0?0:(float)($totalHormonalAcne_green / $totalHormonalAcne)*100 , 2)}} %
+                </span>
+            </li>
+            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalHormonalAcne_yellow}} 
+                <span class="float-right">
+                    {{round( $totalHormonalAcne_yellow==0?0:(float)($totalHormonalAcne_yellow / $totalHormonalAcne)*100 , 2)}} %
+                </span>
+            </li>
+            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalHormonalAcne_red}} 
+                <span class="float-right">
+                    {{round( $totalHormonalAcne_red==0?0:(float)($totalHormonalAcne_red / $totalHormonalAcne)*100 , 2)}} %
+                </span>
+            </li>
 
         </ul>
     </div>
@@ -121,9 +145,21 @@
                 $totalHighTestosterone_yellow = $clientHighTestosterone->where('level','yellow')->count();
                 $totalHighTestosterone_red = $clientHighTestosterone->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalHighTestosterone_green}} <span class="float-right">{{$totalHighTestosterone_green==0?0:(float)($totalHighTestosterone_green / $totalHighTestosterone)*100}} %</span></li>
-            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalHighTestosterone_yellow}} <span class="float-right">{{$totalHighTestosterone_yellow==0?0:(float)($totalHighTestosterone_yellow / $totalHighTestosterone)*100}} %</span></li>
-            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalHighTestosterone_red}} <span class="float-right">{{$totalHighTestosterone_red==0?0:(float)($totalHighTestosterone_red / $totalHighTestosterone)*100}} %</span></li>
+            <li class="p-2 bg-green-500 m-2 rounded-xl">Level GREEN : {{$totalHighTestosterone_green}} 
+                <span class="float-right">
+                    {{round( $totalHighTestosterone_green==0?0:(float)($totalHighTestosterone_green / $totalHighTestosterone)*100 , 2)}} %
+                </span>
+            </li>
+            <li class="p-2 bg-yellow-500 m-2 rounded-xl">Level YELLOW : {{$totalHighTestosterone_yellow}} 
+                <span class="float-right">
+                    {{round( $totalHighTestosterone_yellow==0?0:(float)($totalHighTestosterone_yellow / $totalHighTestosterone)*100 , 2)}} %
+                </span>
+            </li>
+            <li class="p-2 bg-red-500 m-2 rounded-xl">Level RED : {{$totalHighTestosterone_red}} 
+                <span class="float-right">
+                    {{round( $totalHighTestosterone_red==0?0:(float)($totalHighTestosterone_red / $totalHighTestosterone)*100 , 2)}} %
+                </span>
+            </li>
 
         </ul>
     </div>
