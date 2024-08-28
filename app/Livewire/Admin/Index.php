@@ -29,9 +29,9 @@ class Index extends Component
 
         $overall_chart = 
             (new PieChartModel())
-                ->addSlice('PMDD', $this->clients->where('type','PMDD')->where('status','done')->count(), '#bbf7d0')
-                ->addSlice('Hormonal Acne', $this->clients->where('type','HormonalAcne')->where('status','done')->count(), '#fecaca')
-                ->addSlice('High Testosterone', $this->clients->where('type','HighTestosterone')->where('status','done')->count(), '#fed7aa')
+                ->addSlice('PMDD', $this->clients->where('type','PMDD')->where('status','done')->count(), '#009CB4')
+                ->addSlice('Hormonal Acne', $this->clients->where('type','HormonalAcne')->where('status','done')->count(), '#EF482E')
+                ->addSlice('High Testosterone', $this->clients->where('type','HighTestosterone')->where('status','done')->count(), '#ED048C')
             ;
             $col_color = '#4237c5';
             $ages_chart = (new ColumnChartModel())

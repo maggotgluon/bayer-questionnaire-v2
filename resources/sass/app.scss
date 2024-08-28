@@ -287,15 +287,36 @@
 
 .bg{
     &-red{
-        background-color: rgba(255, 101, 101, 0.5);    
+        background-color: #ff656580;    
     }
     &-yellow{
-        background-color: rgba(255, 255, 120, 0.5);    
+        background-color: #ffff7880;    
     }
     &-green{
-        background-color: rgba(129, 255, 129, 0.5);    
+        background-color: #81ff8180;    
     }
     &-{
-        background-color: rgba(114, 114, 114, 0.5);
+        background-color: #72727280;
+    }
+
+    &-PMDD{
+        background-color: #009CB430;    
+    }
+    &-HormonalAcne{
+        background-color: #EF482E30;    
+    }
+    &-HighTestosterone{
+        background-color: #ED048C30;    
+    }
+}
+.text{
+    &-PMDD{
+        color: #009CB4;
+    }
+    &-HormonalAcne{
+        color: #EF482E;
+    }
+    &-HighTestosterone{
+        color: #ED048C;
     }
 }

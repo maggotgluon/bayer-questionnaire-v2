@@ -56,18 +56,18 @@
     </div>
     @foreach ($clients as $c)
 
-    <div class="p-2 md:p-4 md:m-2 bg-gray-100 grid grid-cols-2 gap-2 rounded-xl relative overflow-hidden">
+    <div class="p-2 md:p-4 md:m-2 bg-gray-100 grid grid-cols-2 gap-2 rounded-xl relative overflow-hidden bg-{{$c->type}}">
         <span class="bg-{{$c->level}} absolute w-2 h-full"></span>
-        <h2 class="col-span-2">{{$c->name}} {{$c->age}} </h2>
+        <h2 class="px-4 col-span-2 text-{{$c->type}} bg-{{$c->type}} text-2xl font-medium">{{$c->name}} {{$c->age}} </h2>
         <div>
-            Type : {{$c->type}} <br>
+            Type : <span class="text-{{$c->type}}">{{$c->type}} </span><br>
             status : <span class="inline-flex items-center gap-2 {{$c->status?'text-green-500':'text-red-600'}}"><x-icon name="{{$c->status?'check-circle':'x-circle'}}" class="w-4 h-4" /> {{$c->status?'Done':'Unfinish'}}</span>
         </div>
         <div>
-            <span class="bg-{{$c->level}}"> level : {{$c->level}} <br></span>
+            <span class="bg-{{$c->level}} p-1 px-2"> level : {{$c->level}} <br></span>
             score : {{$c->score}} <br>
         </div>
-        <div class="border-2 border-white p-2  h-[10ch] overflow-y-scroll">
+        <div class="border-2 bg-white/50 border-white p-2  h-[10ch] overflow-y-scroll">
             <h4 class="text-xl">answer</h4>
             <ul>
                 @foreach ($c->answer as $key => $ans)
@@ -83,7 +83,7 @@
             </ul>
         </div>
         @isset($c->symptom)
-        <div class="border-2 border-white p-2 h-[10ch] overflow-y-scroll">
+        <div class="border-2 bg-white/50 border-white p-2 h-[10ch] overflow-y-scroll">
             <h4 class="text-xl">symptom</h4>
             <ul>
                 @foreach ($c->symptom as $ans)

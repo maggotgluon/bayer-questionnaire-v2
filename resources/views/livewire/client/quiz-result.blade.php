@@ -3,7 +3,7 @@
         <div class="relative h-min">
 
         <x-approved-number/>
-        <div class="z-30 absolute bottom-1 right-1 text-xs">
+        <div class="z-30 absolute bottom-1 right-1 text-sm">
         {{$client->member_code}}
         </div>
             <div id="result" >
@@ -20,9 +20,11 @@
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()"/>
-                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%]" 
+                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
                 href="https://bit.ly/medcare-bayer-hormonal-quiz">
-                    ปรึกษาปัญหา <br>สุขภาพผู้หญิง
+                    ปรึกษาปัญหา <br>
+                    สุขภาพผู้หญิง<br>
+                    คลิก
                 </x-button>
                 <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='send line msg'/>
                 <x-button href="https://social-plugins.line.me/lineit/share?url={{urlencode(URL::current())}}&text=ข้อมูลของฉัน" label='send line msg 2'/>
