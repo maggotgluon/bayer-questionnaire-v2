@@ -12,6 +12,10 @@ class Index extends Component
     public $page=2;
     public $client;
 
+
+    protected $messages =[
+        'data.*.required' => 'จำเป็นต้องเลือกอย่างน้อย 1 ข้อ'
+    ];
     public function mount(){
         // $this->page=5;
         if(env('APP_DEBUG',false)){
@@ -88,9 +92,9 @@ class Index extends Component
                 redirect(route('QuizPMDD',$this->client));
             }
             if(isset($d['a2']) && isset($d['a3'])){
-                $this->client->type="HormonalAcne";
+                $this->client->type="HighTestosterone";
                 $this->client->save();
-                redirect(route('QuizHormonalAcne',$this->client));
+                redirect(route('QuizHighTestosterone',$this->client));
             }
             if(isset($d['a1']) && isset($d['a3'])){
                 $this->next();

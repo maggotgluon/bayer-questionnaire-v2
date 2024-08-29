@@ -101,11 +101,13 @@
                 @break
             @case(6)
                 <section class="h-screen grid gap-2 grid-rows-[100px,1fr,100px]  p-6">
-
-                    <h2 class="text-3xl text-center">
-                        เธอรู้สึก<span class="font-medium">กังวล</span>เกี่ยวกับ <br>
-                        เรื่องอะไร
-                    </h2>
+                    <div class="text-center">
+                        <h2 class="text-3xl text-center">
+                            เธอรู้สึก<span class="font-medium">กังวล</span>เกี่ยวกับ <br>
+                            เรื่องอะไร
+                        </h2>
+                        <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
+                    </div>
                     <ul>
                         <li><div class="radio btn-ans"><x-checkbox name="q_1_1" wire:model="data.quiz_1.a1" label="อารมณ์หรือร่างกายแปรปรวนเหมือนมนุษย์กลายร่าง"/></div></li>
                         <li><div class="radio btn-ans"><x-checkbox name="q_1_2" wire:model="data.quiz_1.a2" label="สิวขึ้นผลุบๆ โผล่ๆ เหมือนตัวตุ่น"/></div></li>
@@ -118,10 +120,12 @@
                 @break
             @case(7)
                 <section class="h-screen grid gap-2 grid-rows-[100px,1fr,100px]  p-6">
-
-                    <h2 class="text-3xl text-center">
-                        อาการ<b>ผิดปกติ</b>ทางร่างกายที่เธอสังเกตได้
-                    </h2>
+                    <div class="text-center">
+                        <h2 class="text-3xl text-center">
+                            อาการ<b>ผิดปกติ</b>ทางร่างกายที่เธอสังเกตได้
+                        </h2>
+                        <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
+                    </div>
                     <ul>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.a1"  label="เป็นสิวผิวมัน"/></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.a2"  label="น้ำหนักขึ้นตัวบวม"/></div></li>

@@ -17,6 +17,10 @@ class QuizPMDD extends Component
 
     public $page=1;
 
+    protected $messages =[
+        'data.*.required' => 'จำเป็นต้องเลือกอย่างน้อย 1 ข้อ'
+    ];
+    
     public function mount(client $client = null){
 
         if($client->type=="PMDD"){
@@ -35,6 +39,9 @@ class QuizPMDD extends Component
 
     public function quiz_1Submit(){
         
+        $validatedData = $this->validate([
+            'data.quiz_1' => 'required',
+        ]);
         $ans=$this->ans($this->data['quiz_1']);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
@@ -74,6 +81,10 @@ class QuizPMDD extends Component
     }
 
     public function quiz_2Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_2' => 'required',
+        ]);
         $select=$this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
@@ -117,6 +128,9 @@ class QuizPMDD extends Component
         // dd($this->data['quiz_2'],$ans);
     }
     public function quiz_3Submit(){
+        $validatedData = $this->validate([
+            'data.quiz_3' => 'required',
+        ]);
         // $ans=$this->ans($this->data['quiz_3']);
         $select=$this->client->symptom;
         $answer = $this->client->answer;
@@ -139,6 +153,9 @@ class QuizPMDD extends Component
         // dd($this->data['quiz_3']);
     }
     public function quiz_4Submit(){
+        $validatedData = $this->validate([
+            'data.quiz_4' => 'required',
+        ]);
         // dd($this->client);
         // $ans=$this->ans($this->data['quiz_4']);
         // dd($this->data['quiz_4']);

@@ -15,6 +15,10 @@ class QuizHighTestosterone extends Component
 
     public $page=1;
 
+    protected $messages =[
+        'data.*.required' => 'จำเป็นต้องเลือกอย่างน้อย 1 ข้อ'
+    ];
+
     public function mount(client $client = null){
         if($client->type=="HighTestosterone"){
             $this->client=$client;
@@ -30,6 +34,9 @@ class QuizHighTestosterone extends Component
     }
 
     public function quiz_1Submit(){
+        $validatedData = $this->validate([
+            'data.quiz_1' => 'required',
+        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         if($this->data['quiz_1']==1){
@@ -58,6 +65,9 @@ class QuizHighTestosterone extends Component
         }
     }
     public function quiz_2Submit(){
+        $validatedData = $this->validate([
+            'data.quiz_2' => 'required',
+        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
@@ -76,6 +86,9 @@ class QuizHighTestosterone extends Component
         $this->next();
     }
     public function quiz_3Submit(){
+        $validatedData = $this->validate([
+            'data.quiz_3' => 'required',
+        ]);
         $answer = $this->client->answer;
         switch ($this->data['quiz_3']) {
             case 1:
@@ -97,7 +110,7 @@ class QuizHighTestosterone extends Component
     public function getResult(){
         if($this->score>=4){
             $this->client->level="red";
-        }elseif($this->score=3){
+        }elseif($this->score==3){
             $this->client->level="yellow";
         }elseif($this->score<=2){
             $this->client->level="green";
