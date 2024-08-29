@@ -32,7 +32,7 @@
 
     </span>
     <div class="col-span-3 md:col-span-5 p-4 bg-gray-100 rounded-xl grid">
-        
+
         <h2 class="md:col-span-2">Overall</h2>
         <div>
         <livewire:livewire-pie-chart
@@ -43,7 +43,7 @@
         <ul>
             <li class="p-1">
                 <div class="font-md relative text-left bg-[#009CB430] rounded-lg p-1 text-[#009CB4]">
-                    PMDD : 
+                    PMDD :
                     <span class="relative">
                     {{$clients->where('type','PMDD')->where('status','done')->count()}}
                     <div class="text-2xs absolute bottom-0 left-full">
@@ -54,7 +54,7 @@
             </li>
             <li class="p-1">
                 <div class="font-md relative text-left bg-[#EF482E30] rounded-lg p-1 text-[#EF482E]">
-                    Hormonal Acne : 
+                    Hormonal Acne :
                     <span class="relative">
                     {{$clients->where('type','HormonalAcne')->where('status','done')->count()}}
                     <div class="text-2xs absolute bottom-0 left-full">
@@ -65,7 +65,7 @@
             </li>
             <li class="p-1">
                 <div class="font-md relative text-left bg-[#ED048C30] rounded-lg p-1 text-[#ED048C]">
-                    High Testosterone : 
+                    High Testosterone :
                     <span class="relative">
                     {{$clients->where('type','HighTestosterone')->where('status','done')->count()}}
                     <div class="text-2xs absolute bottom-0 left-full">
@@ -89,17 +89,17 @@
                 $totalPMDD_yellow = $clientPMDD->where('level','yellow')->count();
                 $totalPMDD_red = $clientPMDD->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalPMDD_green}} 
+            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalPMDD_green}}
                 <span class="float-right">
                     {{round( $totalPMDD_green==0?0:(float)($totalPMDD_green / $totalPMDD)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalPMDD_yellow}} 
+            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalPMDD_yellow}}
                 <span class="float-right">
                     {{round( $totalPMDD_yellow==0?0:(float)($totalPMDD_yellow / $totalPMDD)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalPMDD_red}} 
+            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalPMDD_red}}
                 <span class="float-right">
                     {{round( $totalPMDD_red==0?0:(float)($totalPMDD_red / $totalPMDD)*100 , 2)}}%
                 </span>
@@ -117,17 +117,17 @@
                 $totalHormonalAcne_yellow = $clientHormonalAcne->where('level','yellow')->count();
                 $totalHormonalAcne_red = $clientHormonalAcne->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalHormonalAcne_green}} 
+            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalHormonalAcne_green}}
                 <span class="float-right">
                     {{round( $totalHormonalAcne_green==0?0:(float)($totalHormonalAcne_green / $totalHormonalAcne)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalHormonalAcne_yellow}} 
+            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalHormonalAcne_yellow}}
                 <span class="float-right">
                     {{round( $totalHormonalAcne_yellow==0?0:(float)($totalHormonalAcne_yellow / $totalHormonalAcne)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalHormonalAcne_red}} 
+            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalHormonalAcne_red}}
                 <span class="float-right">
                     {{round( $totalHormonalAcne_red==0?0:(float)($totalHormonalAcne_red / $totalHormonalAcne)*100 , 2)}}%
                 </span>
@@ -145,17 +145,17 @@
                 $totalHighTestosterone_yellow = $clientHighTestosterone->where('level','yellow')->count();
                 $totalHighTestosterone_red = $clientHighTestosterone->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalHighTestosterone_green}} 
+            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalHighTestosterone_green}}
                 <span class="float-right">
                     {{round( $totalHighTestosterone_green==0?0:(float)($totalHighTestosterone_green / $totalHighTestosterone)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalHighTestosterone_yellow}} 
+            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalHighTestosterone_yellow}}
                 <span class="float-right">
                     {{round( $totalHighTestosterone_yellow==0?0:(float)($totalHighTestosterone_yellow / $totalHighTestosterone)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalHighTestosterone_red}} 
+            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalHighTestosterone_red}}
                 <span class="float-right">
                     {{round( $totalHighTestosterone_red==0?0:(float)($totalHighTestosterone_red / $totalHighTestosterone)*100 , 2)}}%
                 </span>
@@ -167,7 +167,7 @@
     <div class="col-span-3 md:col-span-7 p-4  bg-gray-100 rounded-xl">
 
         Ages
-        <div class="max-h-[50vh]">
+        <div class="max-h-[50vh] min-h-[300px]">
         <livewire:livewire-column-chart
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :column-chart-model="$ages_chart"
@@ -175,27 +175,27 @@
         </div>
         {{-- <ul>
             <li>
-                Under 10 : 
+                Under 10 :
                 <span>{{$clients->wherebetween('age',[0,10])->count()}}</span>
             </li>
             <li>
-                11-20 : 
+                11-20 :
                 <span>{{$clients->wherebetween('age',[11,20])->count()}}</span>
             </li>
             <li>
-                21-30 : 
+                21-30 :
                 <span>{{$clients->wherebetween('age',[21,30])->count()}}</span>
             </li>
             <li>
-                31-40 : 
+                31-40 :
                 <span>{{$clients->wherebetween('age',[31,40])->count()}}</span>
             </li>
             <li>
-                41-50 : 
+                41-50 :
                 <span>{{$clients->wherebetween('age',[41,50])->count()}}</span>
             </li>
             <li>
-                Over 51 : 
+                Over 51 :
                 <span>{{$clients->wherebetween('age',[51,100])->count()}}</span>
             </li>
         </ul> --}}
@@ -203,7 +203,7 @@
 
     <div class="col-span-3 md:col-span-7 p-4 bg-gray-100 rounded-xl">
         Daly Active User
-        <div class="max-h-[50vh]">
+        <div class="max-h-[50vh] min-h-[300px]">
         <livewire:livewire-line-chart
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :line-chart-model="$date_chart"

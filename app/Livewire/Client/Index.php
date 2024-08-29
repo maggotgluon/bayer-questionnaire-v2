@@ -18,7 +18,7 @@ class Index extends Component
             $this->data['name']=fake()->name();
             $this->data['age']=fake()->randomDigitNotZero()*10;
         }
-        
+
     }
     public function render()
     {
@@ -76,7 +76,7 @@ class Index extends Component
                     $this->client->save();
                     redirect(route('QuizHighTestosterone',$this->client));
                     break;
-                
+
                 default:
                     # code...
                     break;
@@ -88,9 +88,9 @@ class Index extends Component
                 redirect(route('QuizPMDD',$this->client));
             }
             if(isset($d['a2']) && isset($d['a3'])){
-                $this->client->type="HormonalAcne";
+                $this->client->type="QuizHighTestosterone";
                 $this->client->save();
-                redirect(route('QuizHormonalAcne',$this->client));
+                redirect(route('QuizHighTestosterone',$this->client));
             }
             if(isset($d['a1']) && isset($d['a3'])){
                 $this->next();
@@ -108,7 +108,7 @@ class Index extends Component
         ]);
 
         $d = collect($this->data['quiz_2']);
-        
+
         $select=$this->client->answer;
         isset($d['a1'])?$select['q0-2'][]='a1':$select;
         isset($d['a2'])?$select['q0-2'][]='a2':$select;

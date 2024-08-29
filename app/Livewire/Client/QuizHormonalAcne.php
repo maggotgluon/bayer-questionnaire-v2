@@ -32,6 +32,10 @@ class QuizHormonalAcne extends Component
 
 
     public function quiz_1Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_1' => 'required',
+        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
 
@@ -50,6 +54,9 @@ class QuizHormonalAcne extends Component
     }
     public function quiz_2Submit(){
 
+        $validatedData = $this->validate([
+            'data.quiz_2' => 'required',
+        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
@@ -83,6 +90,10 @@ class QuizHormonalAcne extends Component
         $this->next();
     }
     public function quiz_3Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_3' => 'required',
+        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         // $ans=$this->data['quiz_3'];
@@ -127,6 +138,10 @@ class QuizHormonalAcne extends Component
         $this->next();
     }
     public function quiz_4Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_4' => 'required',
+        ]);
         $answer = $this->client->answer;
         switch ($this->data['quiz_4']) {
             case 1:

@@ -2,7 +2,7 @@
 
 @section('body')
     @auth
-    <section class="md:grid grid-cols-[1fr,5fr] w-full">
+    <section class="md:grid grid-cols-[250px,5fr] w-full">
         <livewire:admin.sidebar />
         @yield('content')
         @isset($slot)

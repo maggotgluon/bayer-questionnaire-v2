@@ -34,7 +34,11 @@ class QuizPMDD extends Component
     }
 
     public function quiz_1Submit(){
-        
+
+        $validatedData = $this->validate([
+            'data.quiz_1' => 'required',
+        ]);
+
         $ans=$this->ans($this->data['quiz_1']);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
@@ -69,11 +73,16 @@ class QuizPMDD extends Component
         $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        
+
         $this->next();
     }
 
     public function quiz_2Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_2' => 'required',
+        ]);
+
         $select=$this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
@@ -109,7 +118,7 @@ class QuizPMDD extends Component
         $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        if($this->client->level=="green"){            
+        if($this->client->level=="green"){
             return $this->goto(8);
         }else{
             $this->next();
@@ -117,6 +126,10 @@ class QuizPMDD extends Component
         // dd($this->data['quiz_2'],$ans);
     }
     public function quiz_3Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_3' => 'required',
+        ]);
         // $ans=$this->ans($this->data['quiz_3']);
         $select=$this->client->symptom;
         $answer = $this->client->answer;
@@ -139,6 +152,10 @@ class QuizPMDD extends Component
         // dd($this->data['quiz_3']);
     }
     public function quiz_4Submit(){
+
+        $validatedData = $this->validate([
+            'data.quiz_4' => 'required',
+        ]);
         // dd($this->client);
         // $ans=$this->ans($this->data['quiz_4']);
         // dd($this->data['quiz_4']);
@@ -164,7 +181,7 @@ class QuizPMDD extends Component
         if($this->client->level=="green"){
             $this->client->status="done";
             $this->client->save();
-            return redirect(route('result',$this->client));    
+            return redirect(route('result',$this->client));
         }
 
         if($this->score>=7){
