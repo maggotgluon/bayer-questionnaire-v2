@@ -36,11 +36,11 @@
                         <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
-                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_1.1" value="1" label="มนุษย์ถ้ำจำศีลที่อยากอยู่เงียบ ๆ คนเดียว" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_1.2" value="2" label="มนุษย์ดราม่า น้ำตาไหลเหมือนน้ำจะท่วม" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_1.3" value="3" label="มนุษย์ขี้วีน โมโหฉ่ำเหมือนพายุเข้า" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_1.4" value="4" label="เครียด วิตกกังวล" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_1.5" value="5" label="ไม่มีอาการทางอารมณ์" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.1" value="1" label="มนุษย์ถ้ำจำศีลที่อยากอยู่เงียบ ๆ คนเดียว" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.2" value="2" label="มนุษย์ดราม่า น้ำตาไหลเหมือนน้ำจะท่วม" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.3" value="3" label="มนุษย์ขี้วีน โมโหฉ่ำเหมือนพายุเข้า" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.4" value="4" label="เครียด วิตกกังวล" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.5" value="5" label="ไม่มีอาการทางอารมณ์" /></div></li>
                     </ul>
 
                     <div class="text-center">
@@ -59,12 +59,12 @@
                         <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
-                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.1" label="นอนไม่หลับ ร่างกายกระสับกระส่าย" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.2" label="ตัวบวม หน้าบวมเหมือนลูกโป่งเดินได้" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.3" label="ไม่อยากอาหาร เหมือนคนอกหัก" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.4" label="เจ็บเต้านม " /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.5" label="ปวดกล้ามเนื้อ เหมือนโดนทับ" /></div></li>
-                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model="data.quiz_2.6" label="ยังดีอยู่...ที่ร่างกายเหมือนเดิมไม่มีเปลี่ยนแปลง" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.1" label="นอนไม่หลับ ร่างกายกระสับกระส่าย" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.2" label="ตัวบวม หน้าบวมเหมือนลูกโป่งเดินได้" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.3" label="ไม่อยากอาหาร เหมือนคนอกหัก" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.4" label="เจ็บเต้านม " /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.5" label="ปวดกล้ามเนื้อ เหมือนโดนทับ" /></div></li>
+                        <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.6" label="ยังดีอยู่...ที่ร่างกายเหมือนเดิมไม่มีเปลี่ยนแปลง" /></div></li>
                     </ul>
 
                     <div class="text-center">
@@ -95,8 +95,8 @@
                         อาการเหล่านี้เกิดขึ้นก่อนมีประจำเดือนภายใน 1 สัปดาห์
                     </h2>
                     <ul>
-                        <li><div class="radio btn-ans"><x-radio id="q-3-1" wire:model="data.quiz_3" value="1" label="ใช่" /></div></li>
-                        <li><div class="radio btn-ans"><x-radio id="q-3-2" wire:model="data.quiz_3" value="0" label="ไม่ใช่" /></div></li>
+                        <li><div class="radio btn-ans"><x-radio id="q-3-1" wire:model.live="data.quiz_3" value="1" label="ใช่" /></div></li>
+                        <li><div class="radio btn-ans"><x-radio id="q-3-2" wire:model.live="data.quiz_3" value="0" label="ไม่ใช่" /></div></li>
                     </ul>
                     <div class="text-center">
                         <x-button class="btn-1" wire:click="quiz_3Submit" label="ต่อไป" />
@@ -148,15 +148,15 @@
 
                     <ul>
                         <li>
-                            <div class="radio btn-ans"><x-radio id="q-4-1" wire:model="data.quiz_4" value="1"
+                            <div class="radio btn-ans"><x-radio id="q-4-1" wire:model.live="data.quiz_4" value="1"
                                     label="รู้จัก" /></div>
                         </li>
                         <li>
-                            <div class="radio btn-ans"><x-radio id="q-4-2" wire:model="data.quiz_4" value="0"
+                            <div class="radio btn-ans"><x-radio id="q-4-2" wire:model.live="data.quiz_4" value="0"
                                     label="ไม่แน่ใจ" /></div>
                         </li>
                         <li>
-                            <div class="radio btn-ans"><x-radio id="q-4-3" wire:model="data.quiz_4" value="-1"
+                            <div class="radio btn-ans"><x-radio id="q-4-3" wire:model.live="data.quiz_4" value="-1"
                                     label="ไม่รู้จัก" /></div>
                         </li>
                     </ul>
