@@ -1,19 +1,19 @@
 <div class="bg-gradient-to-b from-[rgba(171,229,65,1)] via-35% via-[rgba(64,196,168,1) ] to-[rgba(2,100,166,1)] w-full grid justify-items-center relative">
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
-        
+
         <x-approved-number/>
-        @if (env('APP_DEBUG',false))            
+        @if (env('APP_DEBUG',false))
             <div class="fixed left-1 top-1">
                 <x-button label="back" wire:click="back()" />
                 <x-button label="next" wire:click="next()" />
             </div>
         @endif
-        
+
         @switch($page)
             @case(1)
                 <section class="h-screen grid p-6 bg-white">
                     Demo
-                    
+
                     <div>
                         <x-button wire:click="next" label="ต่อไป"/>
                     </div>
@@ -42,7 +42,7 @@
                                 การตกลงเข้าร่วมกิจกรรมนี้ถือว่าผู้ร่วมกิจกรรมยอมรับข้อกำหนด
                                 และเงื่อนไขต่าง ๆ ในการเข้าร่วมกิจกรรมนี้ทั้งหมดและรับทราบว่า เว็บไซต์ Hormonal Quiz (ต่อไปนี้เรียกว่า “เว็บไซต์ Hormonal Quiz”) จะดำเนินการเก็บรวบรวม ใช้ เปิดเผย หรือประมวลผลข้อมูลส่วนบุคคลทั้งหลายที่ท่านได้ให้แก่เว็บไซต์ Hormonal Quiz ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล เช่น ชื่อ อายุ อาการด้านร่างกายและอารมณ์ โดยเว็บไซต์ Hormonal Quiz จะเก็บรักษาข้อมูลส่วนบุคคลของท่านไว้ตลอดระยะเวลากิจกรรมนี้ เพื่อวัตถุประสงค์ในการวิเคราะห์ข้อมูล
                                 และเพื่อวางแผนทางการตลาด
-                            </p><p class="p-4 my-2 text-center">    
+                            </p><p class="p-4 my-2 text-center">
                                 ผู้ใช้เว็บไซต์ Hormonal Quiz รับทราบและตกลงว่า เว็บไซต์ Hormonal Quiz มีลิงก์/ข้อมูลอ้างอิงไปยังช่องทางของ Medcare การคลิกที่ลิงก์ที่ให้ไว้ แสดงว่าคุณกำลังออกจาก เว็บไซต์ Hormonal Quiz ไปยังแอปพลิเคชันบุคคลที่สามที่คุณอาจสนใจด้านการดูแลสุขภาพ
                                 เมื่อคลิกลิงก์ที่ให้ไว้คุณจะถูกนำไปยังแอปพลิเคชันภายนอก ไม่ได้อยู่ภายใต้การควบคุมของเจ้าของเว็บไซต์ Hormonal Quiz ผู้แทนและ/หรือตัวแทน ของเจ้าของเว็บไซต์ Hormonal Quiz จะไม่รับผิดชอบต่อเนื้อหา และข้อกำหนดการใช้งานของบุคคลที่สาม โดยการให้ลิงก์ดังกล่าวไปยังแอปพลิเคชัน เจ้าของเว็บไซต์ Hormonal Quiz ผู้แทน และ/หรือตัวแทน เจ้าของเว็บไซต์ Hormonal Quiz จะไม่รับผิดชอบใดๆ ต่อเนื้อหา หรือความพร้อมของเนื้อหาของแอปพลิเคชันบุคคลที่สามดังกล่าว หรือความรับผิดใดๆ สำหรับ ความเสียหายหรือการบาดเจ็บที่เกิดจากการใช้เนื้อหาดังกล่าว ไม่ว่าจะอยู่ในรูปแบบใดก็ตาม เจ้าของเว็บไซต์ Hormonal Quiz ผู้แทน และ/หรือตัวแทนของเจ้าของเว็บไซต์ Hormonal Quiz ไม่รับประกันว่าหน้าเว็บไซต์ที่เชื่อมโยงจะให้ข้อมูลที่มีคุณภาพสม่ำเสมอ การลิงก์ไปยังแอปพลิเคชันอื่นมีให้สำหรับผู้ใช้เว็บไซต์เพื่อความสะดวกเท่านั้น ผู้ใช้เข้าถึงแอปพลิเคชันดังกล่าวยอมรับความเสี่ยงเอง การเลือกลิงก์ไม่ได้จำกัดผู้ใช้ไปยังหน้าที่เชื่อมโยง นโยบายความเป็นส่วนตัวของข้อมูลในเว็บไซต์อื่นอาจแตกต่างจากเว็บไซต์นี้ ดังนั้นโปรดอ่านข้อกำหนดและนโยบายความเป็นส่วนตัวเหล่านั้นอย่างละเอียด ในกรณีที่มีคำถามเกี่ยวกับบริการและผลิตภัณฑ์ที่นำเสนอโดยแอปพลิเคชันของบุคคลที่สามที่เชื่อมโยงเหล่านี้ โปรดติดต่อพวกเขาโดยตรง
                             </p><p class="p-4 my-2 text-center">
@@ -101,12 +101,13 @@
                 @break
             @case(6)
                 <section class="h-screen grid gap-2 grid-rows-[100px,1fr,100px]  p-6">
+
                     <div class="text-center">
                         <h2 class="text-3xl text-center">
                             เธอรู้สึก<span class="font-medium">กังวล</span>เกี่ยวกับ <br>
                             เรื่องอะไร
                         </h2>
-                        <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
+                        <span>ตอบได้มากกว่า 1 ข้อนะ</span>
                     </div>
                     <ul>
                         <li><div class="radio btn-ans"><x-checkbox name="q_1_1" wire:model="data.quiz_1.a1" label="อารมณ์หรือร่างกายแปรปรวนเหมือนมนุษย์กลายร่าง"/></div></li>
@@ -122,9 +123,9 @@
                 <section class="h-screen grid gap-2 grid-rows-[100px,1fr,100px]  p-6">
                     <div class="text-center">
                         <h2 class="text-3xl text-center">
-                            อาการ<b>ผิดปกติ</b>ทางร่างกายที่เธอสังเกตได้
+                            อาการ<span class="font-medium">ผิดปกติ</span>ทางร่างกายที่เธอสังเกตได้
                         </h2>
-                        <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
+                        <span>ตอบได้มากกว่า 1 ข้อนะ</span>
                     </div>
                     <ul>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.a1"  label="เป็นสิวผิวมัน"/></div></li>
@@ -132,16 +133,16 @@
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.a3"  label="ผมร่วง ผมบาง"/></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.a4"  label="ไม่มีอาการข้างต้นที่กล่าวมา"/></div></li>
                     </ul>
-            
+
                     <div class="text-center">
                         <x-button class="btn btn-1" wire:click="quiz_2Submit" label="ต่อไป"/>
                     </div>
                 </section>
-                
+
                 @break
-            
+
             @default
-                
+
         @endswitch
 
     </div>

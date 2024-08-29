@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-2 p-2 md:p-4 mt-8 md:mt-auto">
-    <div class="md:col-span-7 flex gap-2 items-end">
+<div class="flex flex-col gap-2 p-2 md:p-4 mt-8 md:mt-0">
+    <div class="md:col-span-7 flex gap-2 items-end flex-wrap">
         <x-datetime-picker
             id="min-max-times-input"
             without-time
@@ -14,18 +14,18 @@
             placeholder="select date"
             wire:model.live="dateto"
         />
-        <x-button label="download" wire:click="download"/>
+        <x-button label="download" wire:click="download" class="w-full md:w-auto"/>
     </div>
 
     Client
-    
-    <div class="flex gap-2 justify-left items-end">
+
+    <div class="flex gap-2 justify-left items-end flex-wrap">
         <x-select
             label="Select Status"
             placeholder="Select one status"
             :options="[
                 ['value'=>'all','label'=>'All'],
-                ['value'=>'null','label'=>'Unfinished'], 
+                ['value'=>'null','label'=>'Unfinished'],
                 ['value'=>'done','label'=>'Done']
                 ]"
 
@@ -38,7 +38,7 @@
             placeholder="Select client group"
             :options="[
                 ['value'=>'PMDD','label'=>'PMDD'],
-                ['value'=>'HormonalAcne','label'=>'Hormonal Acne'], 
+                ['value'=>'HormonalAcne','label'=>'Hormonal Acne'],
                 ['value'=>'HighTestosterone','label'=>'High Testosterone']
                 ]"
 

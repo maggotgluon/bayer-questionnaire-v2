@@ -76,7 +76,7 @@ class QuizPMDD extends Component
         $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        
+
         $this->next();
     }
 
@@ -120,7 +120,7 @@ class QuizPMDD extends Component
         $this->client->answer = $answer;
         $this->client->symptom=$select;
         $this->client->save();
-        if($this->client->level=="green"){            
+        if($this->client->level=="green"){
             return $this->goto(8);
         }else{
             $this->next();
@@ -181,7 +181,7 @@ class QuizPMDD extends Component
         if($this->client->level=="green"){
             $this->client->status="done";
             $this->client->save();
-            return redirect(route('result',$this->client));    
+            return redirect(route('result',$this->client));
         }
 
         if($this->score>=7){

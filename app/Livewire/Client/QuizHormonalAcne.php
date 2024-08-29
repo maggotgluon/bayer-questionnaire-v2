@@ -60,6 +60,9 @@ class QuizHormonalAcne extends Component
             'data.quiz_2' => 'required',
         ]);
 
+        $validatedData = $this->validate([
+            'data.quiz_2' => 'required',
+        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
