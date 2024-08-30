@@ -1,4 +1,14 @@
 <div class="bg-gradient-to-b from-[rgba(171,229,65,1)] via-35% via-[rgba(64,196,168,1) ] to-[rgba(2,100,166,1)] w-full grid justify-items-center">
+
+    <meta property="og:image" content="{{asset('images/'.$image)}}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="{{asset('images/'.$image)}}" />
+    <meta property="og:title" content="{{$client->name}}" />
+    <meta name="twitter:title" content="{{$client->name}}">
+
+    <meta property="og:description" content="{{$client->name}}" />
+    <meta property="twitter:description" content="{{$client->name}}" />
+
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
 
@@ -20,7 +30,7 @@
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()"/>
-                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
+                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center"
                 href="https://bit.ly/medcare-bayer-hormonal-quiz">
                     ปรึกษาปัญหา <br>
                     สุขภาพผู้หญิง<br>
@@ -28,8 +38,8 @@
                 </x-button>
                 <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='send line msg'/>
                 <x-button href="https://social-plugins.line.me/lineit/share?url={{urlencode(URL::current())}}&text=ข้อมูลของฉัน" label='send line msg 2'/>
-                
-                
+
+
             </span>
             {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
         </div>
@@ -54,7 +64,7 @@
                 canvas.width = loadedImageWidth;
                 canvas.height = loadedImageHeight;
 				console.log("load canvas");
-				
+
                 //let font = new FontFace('myFont',"url('//fonts/DB\ HeaventRounded\ Bd\ v3.2.1.ttf')")
                 //await font.load()
                 //document.fonts.add(font)
@@ -73,9 +83,9 @@
                 // ctx.fillText("-{{$client->symptom[0]}}", 50, 1110);
 
                 @foreach ($client->symptom as $i=>$a)
-                    
+
                     ctx.fillText("-{{$a}}", 50, 1110+({{$i}}*70));
-                    
+
                 @endforeach
 
                 let i = document.getElementById('resultImg');
@@ -86,14 +96,14 @@
                 i.src=canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
                 data = canvas.toDataURL("image/png").replace(/^data:image\/(png|jpg);base64,/, "");
                 console.log(data)
-				
+
 				document.getElementById('btn').classList.remove('hidden')
                 // document.body.appendChild(i)
 				return ctx
             };
 			//open images on new windows
   			//const win = window.open(dataUrl, '_blank');
-            
+
 			// Now that we have set up the image "onload" handeler, we can assign
             // an image URL to the image.
             img.src = imageUrl;
@@ -102,14 +112,14 @@
             // a.href = imageUrl;
             // a.download = 'result.jpg';
             // console.log('create element'+'a')
-            // a.click(); 
-			
+            // a.click();
+
         };
 
         // Run code after the page is loaded
         document.addEventListener("DOMContentLoaded", () => {
         // Setting up the canvas
-			
+
             let theCanvas = document.getElementById("myCanvas");
 
             // Some image URL..
@@ -119,7 +129,7 @@
             loadImageOnCanvasAndResizeCanvasToFitImage(theCanvas, imageUrl,"{{$client->name??"-"}}");
         });
 
-        
+
         function saveImg(){
             let theCanvas = document.getElementById("myCanvas");
             // Some image URL..
@@ -166,6 +176,6 @@
                 }
             })
         }
-        
+
     </script>
 </div>
