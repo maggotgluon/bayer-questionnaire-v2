@@ -11,11 +11,18 @@
 
         @switch($page)
             @case(1)
-                <section class="h-screen grid p-6 bg-white">
-                    Demo
+                <section class="h-screen grid p-6 bg-white w-full">
+                    <x-errors />
 
+                    <div class="w-full">
+                    <div class="radio btn-ans"><input checked='{{$data["quiz_0"]["a1"]?"checked":""}}' type='checkbox' wire:model.live="data.quiz_0.a1" id="a1" name='a1'/><label for="a1"> a1</label></div>
+                    <div class="radio btn-ans"><input checked='{{$data["quiz_0"]["a2"]?"checked":""}}' type='checkbox' wire:model.live="data.quiz_0.a2" id="a2" name='a2'/><label for="a2"> a2</label></div>
+                    <div class="radio btn-ans"><input checked='{{$data["quiz_0"]["a3"]?"checked":""}}' type='checkbox' wire:model.live="data.quiz_0.a3" id="a3" name='a3'/><label for="a3"> a3</label></div>
+                    <div class="radio btn-ans"><input checked='{{$data["quiz_0"]["a4"]?"checked":""}}' type='checkbox' wire:model.live="data.quiz_0.a4" id="a4" name='a4'/><label for="a4"> a4</label></div>
+                    <div class="radio btn-ans"><input checked='{{$data["quiz_0"]["a5"]?"checked":""}}' type='checkbox' wire:model.live="data.quiz_0.a5" id="a5" name='a5'/><label for="a5"> a5</label></div>
+                    </div>
                     <div>
-                        <x-button wire:click="next" label="ต่อไป"/>
+                        <x-button wire:click="demo" label="ต่อไป"/>
                     </div>
                 </section>
                 @break

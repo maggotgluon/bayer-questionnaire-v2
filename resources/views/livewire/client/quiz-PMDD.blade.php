@@ -12,7 +12,7 @@
 
         @switch($page)
             @case(1)
-                <section class="h-screen grid">
+                <section class="min-h-screen grid">
                     <div class="p-4 bg-paper rounded-lg text-center">
                         <img src="{{asset('images/q1-1.png')}}" class="p-8"/>
                         <h2 class="text-3xl">มนุษย์กลายร่าง</h2>
@@ -27,7 +27,7 @@
             @break
 
             @case(2)
-                <section class="h-screen grid grid-rows-[150px,1fr,100px] gap-2 p-6">
+                <section class="min-h-screen grid grid-rows-[150px,1fr,100px] gap-2 p-6">
                     <div class="text-center">
                         <span>อาการก่อนเป็นประจำเดือน</span>
                         <h2 class="text-3xl text-center">
@@ -36,6 +36,7 @@
                         <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
+                        <x-errors />
                         <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.1" value="1" label="มนุษย์ถ้ำจำศีลที่อยากอยู่เงียบ ๆ คนเดียว" /></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.2" value="2" label="มนุษย์ดราม่า น้ำตาไหลเหมือนน้ำจะท่วม" /></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model.live="data.quiz_1.3" value="3" label="มนุษย์ขี้วีน โมโหฉ่ำเหมือนพายุเข้า" /></div></li>
@@ -50,7 +51,7 @@
             @break
 
             @case(3)
-                <section class="h-screen grid grid-rows-[150px,1fr,100px] gap-2 p-6">
+                <section class="min-h-screen grid grid-rows-[150px,1fr,100px] gap-2 p-6">
                     <div class="text-center">
                         <span>อาการก่อนเป็นประจำเดือน</span>
                         <h2 class="text-3xl">
@@ -59,6 +60,7 @@
                         <span class="text-red-700">(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
+                        <x-errors />
                         <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.1" label="นอนไม่หลับ ร่างกายกระสับกระส่าย" /></div></li>
                         <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.2" label="ตัวบวม หน้าบวมเหมือนลูกโป่งเดินได้" /></div></li>
                         <li><div class="radio btn-ans"><x-checkbox name="q-2" wire:model.live="data.quiz_2.3" label="ไม่อยากอาหาร เหมือนคนอกหัก" /></div></li>
@@ -74,7 +76,7 @@
             @break
 
             @case(4)
-                <section class="h-screen grid">
+                <section class="min-h-screen grid">
                     <div class="p-4 bg-paper rounded-lg text-center flex flex-col justify-center">
                         <h2 class="text-3xl text-center">
                             แข็งแกร่ง<br>
@@ -90,11 +92,12 @@
             @break
 
             @case(5)
-                <section class="h-screen grid grid-rows-[150px,1fr,100px] p-6">
+                <section class="min-h-screen grid grid-rows-[150px,1fr,100px] p-6">
                     <h2 class="text-3xl text-center">
                         อาการเหล่านี้เกิดขึ้นก่อนมีประจำเดือนภายใน 1 สัปดาห์
                     </h2>
                     <ul>
+                        
                         <li><div class="radio btn-ans"><x-radio id="q-3-1" wire:model.live="data.quiz_3" value="1" label="ใช่" /></div></li>
                         <li><div class="radio btn-ans"><x-radio id="q-3-2" wire:model.live="data.quiz_3" value="0" label="ไม่ใช่" /></div></li>
                     </ul>
@@ -105,7 +108,7 @@
             @break
 
             @case(6)
-                <section class="h-screen grid">
+                <section class="min-h-screen grid">
 
                     <div class="p-4 bg-paper rounded-lg text-center flex flex-col justify-center">
                         <img src="{{asset('images/q1-3.png')}}" class="p-4 w-5/6 mx-auto"/>
@@ -126,7 +129,7 @@
             @break
 
             @case(7)
-                <section class="h-screen grid grid-rows-[1fr,150px,100px]">
+                <section class="min-h-screen grid grid-rows-[1fr,150px,100px]">
                     <div class="bg-1-4 relative">
                         <span class="absolute bottom-[1%] left-[13%] w-[80%] h-[13%] grid items-center text-center text-2xl">หยุดกลายร่างได้</span>
                     </div>
@@ -141,24 +144,16 @@
             @break
 
             @case(8)
-                <section class="h-screen grid grid-rows-[150px,1fr,100px] p-6">
+                <section class="min-h-screen grid grid-rows-[150px,1fr,100px] p-6">
                     <h2 class="text-3xl text-center">
                         รู้จักภาวะ “PMDD” ไหม
                     </h2>
 
                     <ul>
-                        <li>
-                            <div class="radio btn-ans"><x-radio id="q-4-1" wire:model.live="data.quiz_4" value="1"
-                                    label="รู้จัก" /></div>
-                        </li>
-                        <li>
-                            <div class="radio btn-ans"><x-radio id="q-4-2" wire:model.live="data.quiz_4" value="0"
-                                    label="ไม่แน่ใจ" /></div>
-                        </li>
-                        <li>
-                            <div class="radio btn-ans"><x-radio id="q-4-3" wire:model.live="data.quiz_4" value="-1"
-                                    label="ไม่รู้จัก" /></div>
-                        </li>
+                        <x-errors />
+                        <li><div class="radio btn-ans"><x-radio id="q-4-1" wire:model.live="data.quiz_4" value="1" label="รู้จัก" /></div> </li>
+                        <li><div class="radio btn-ans"><x-radio id="q-4-2" wire:model.live="data.quiz_4" value="0" label="ไม่แน่ใจ" /></div> </li>
+                        <li><div class="radio btn-ans"><x-radio id="q-4-3" wire:model.live="data.quiz_4" value="-1" label="ไม่รู้จัก" /></div> </li>
                     </ul>
 
                     <div class="text-center">

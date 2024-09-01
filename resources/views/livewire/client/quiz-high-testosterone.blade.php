@@ -68,6 +68,7 @@
                         <span>ตอบได้มากกว่า 1 ข้อนะ</span>
                     </div>
                     <ul>
+                        <x-errors />
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.1" label="สิวเห่อ สิวผลุบๆ โผล่ๆ เหมือนตัวตุ่น" /></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.2" label="หน้ามัน เหมือนหนังปลาทู" /></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_2.3" label="ขนดก เหมือนผู้ชายมาดแมน" /></div></li>

@@ -56,6 +56,7 @@
                         <span>(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
+                        <x-errors />
                         <li>
                             <div class="relative p-2">
                                 <img src="{{asset('/images/a2-1.png')}}" class="h-full aspect-square absolute top-0 left-0 z-10"/> 
@@ -103,6 +104,7 @@
                         <span>(เลือกได้มากกว่า 1 ข้อ)</span>
                     </div>
                     <ul>
+                        <x-errors />
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.1" lg id="q-6" value="1" label="ประจำเดือนมา ๆ หาย ๆ เดาใจยากเหมือนคนคุย"/></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.2" lg id="q-7" value="2" label="หน้ามัน เหมือนหนังปลาทู"/></div></li>
                         <li><div class="radio btn-ans"><x-checkbox wire:model="data.quiz_3.3" lg id="q-8" value="3" label="ขนดก เหมือนผู้ชายมาดแมน"/></div></li>

@@ -28,6 +28,14 @@ class QuizPMDD extends Component
         }else{
             dd($client);
         }
+
+        $this->data['quiz_1'] = [
+            '1'=>false,
+            '2'=>false,
+            '3'=>false,
+            '4'=>false,
+            '5'=>false
+        ];
         // $this->client->symptom=[];
         // $this->page=9;
     }
@@ -37,12 +45,32 @@ class QuizPMDD extends Component
         return view('livewire.client.quiz-PMDD');
     }
 
+    public function updatedData($value, $key){
+        $dataKey = explode('.',$key);
+        // dd($value,$key,$dataKey,$this->data['quiz_1']);
+        if($dataKey[0]=='quiz_1'){
+            // dd($dataKey[1]);
+            if($dataKey[1]=='1'||$dataKey[1]=='2'||$dataKey[1]=='3'||$dataKey[1]=='4'){
+                $this->data['quiz_1']['5']=false;
+            }
+            elseif( $this->data['quiz_1']['5']==true){
+                // dd($this->data['quiz_1'],$dataKey);
+                $this->data['quiz_1']['1']=false;
+                $this->data['quiz_1']['2']=false;
+                $this->data['quiz_1']['3']=false;
+                $this->data['quiz_1']['4']=false;
+                // dd($value, $key,isset($value['a5']));
+            }
+        }
+    }
     public function quiz_1Submit(){
-        
         $validatedData = $this->validate([
-            'data.quiz_1' => 'required',
+            'data.quiz_1' => 'required'
         ]);
         $ans=$this->ans($this->data['quiz_1']);
+        if($ans==[]){
+            return $this->addError('data.quiz_1.*','จำเป็นต้องเลือกอย่างน้อย 1 ข้อ');
+        }
         $select = $this->client->symptom;
         $answer = $this->client->answer;
 
@@ -88,6 +116,9 @@ class QuizPMDD extends Component
         $select=$this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
+        if($ans==[]){
+            return $this->addError('data.quiz_2.*','จำเป็นต้องเลือกอย่างน้อย 1 ข้อ');
+        }
         foreach($ans as $a){
             if($a==1){
                 $answer['q1-2'][]='a1';
@@ -156,9 +187,7 @@ class QuizPMDD extends Component
         $validatedData = $this->validate([
             'data.quiz_4' => 'required',
         ]);
-        // dd($this->client);
-        // $ans=$this->ans($this->data['quiz_4']);
-        // dd($this->data['quiz_4']);
+        
         $answer = $this->client->answer;
         switch ($this->data['quiz_4']) {
             case 1:

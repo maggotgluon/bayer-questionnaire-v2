@@ -71,6 +71,9 @@ class QuizHighTestosterone extends Component
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
+        if($ans==[]){
+            return $this->addError('data.quiz_2.*','จำเป็นต้องเลือกอย่างน้อย 1 ข้อ');
+        }
         foreach($ans as $a){
             if($a==1){$select[]='สิวเห่อ สิวผลุบๆ โผล่ๆ เหมือนตัวตุ่น';$answer['q3-2'][]='a1';}
             if($a==2){$select[]='หน้ามัน เหมือนหนังปลาทู';$answer['q3-2'][]='a2';}

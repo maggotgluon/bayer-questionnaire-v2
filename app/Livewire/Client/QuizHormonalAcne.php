@@ -59,13 +59,12 @@ class QuizHormonalAcne extends Component
         $validatedData = $this->validate([
             'data.quiz_2' => 'required',
         ]);
-
-        $validatedData = $this->validate([
-            'data.quiz_2' => 'required',
-        ]);
         $select = $this->client->symptom;
         $answer = $this->client->answer;
         $ans=$this->ans($this->data['quiz_2']);
+        if($ans==[]){
+            return $this->addError('data.quiz_2.*','จำเป็นต้องเลือกอย่างน้อย 1 ข้อ');
+        }
         foreach($ans as $a){
             if($a==1){
                 $answer['q2-2'][]='a1';
@@ -103,6 +102,9 @@ class QuizHormonalAcne extends Component
         $answer = $this->client->answer;
         // $ans=$this->data['quiz_3'];
         $ans=$this->ans($this->data['quiz_3']);
+        if($ans==[]){
+            return $this->addError('data.quiz_3.*','จำเป็นต้องเลือกอย่างน้อย 1 ข้อ');
+        }
 
         foreach($ans as $a){
             if($a==1){

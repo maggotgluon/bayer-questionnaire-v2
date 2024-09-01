@@ -4,6 +4,7 @@ namespace App\Livewire\Client;
 
 use App\Models\client;
 use Illuminate\Support\Arr;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class Index extends Component
@@ -22,11 +23,50 @@ class Index extends Component
             $this->data['name']=fake()->name();
             $this->data['age']=fake()->randomDigitNotZero()*10;
         }
+        // $this->data['quiz_0'] = [
+        //         'a1'=>false,
+        //         'a2'=>false,
+        //         'a3'=>false,
+        //         'a4'=>false,
+        //         'a5'=>false
+        //     ];
 
     }
     public function render()
     {
         return view('livewire.client.index');
+    }
+    public function updatedData($value, $key){
+        $dataKey = explode('.',$key);
+        // dd($value,$key,$dataKey,$this->data['quiz_0']);
+        if($dataKey[0]=='quiz_0'){
+            // dd($dataKey[1]);
+            if($dataKey[1]=='a1'||$dataKey[1]=='a2'||$dataKey[1]=='a3'||$dataKey[1]=='a4'){
+                $this->data['quiz_0']['a5']=false;
+            }
+            elseif( $this->data['quiz_0']['a5']==true){
+                // dd($this->data['quiz_0'],$dataKey);
+                $this->data['quiz_0']['a1']=false;
+                $this->data['quiz_0']['a2']=false;
+                $this->data['quiz_0']['a3']=false;
+                $this->data['quiz_0']['a4']=false;
+                // dd($value, $key,isset($value['a5']));
+            }
+        }
+    }
+    public function demo(){
+        foreach($this->data['quiz_0'] as $key=>$val){
+            $this->data['quiz_0'][$key] = $val?true:null;
+            // dd($key,$val);
+        };
+        // dd($this->data['quiz_0']);
+        $validatedData = $this->validate([
+            'data.quiz_0' => 'required',
+            // 'data.quiz_0'=>Rule::forEach(function($val){
+            //     return $val;
+            // })
+        ]);
+        dd($validatedData);
     }
     public function quiz_0Submit(){
         $validatedData = $this->validate([
