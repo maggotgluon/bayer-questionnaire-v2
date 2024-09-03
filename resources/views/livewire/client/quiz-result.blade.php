@@ -13,7 +13,7 @@
         <div class="relative h-min">
 
         <x-approved-number/>
-        <div class="z-30 absolute bottom-1 right-1 text-sm">
+        <div class="z-30 absolute bottom-1 right-1">
         {{$client->member_code}}
         </div>
             <div id="result" >
@@ -36,8 +36,8 @@
                     สุขภาพผู้หญิง<br>
                     คลิก
                 </x-button>
-                <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='send line msg'/>
-                <x-button href="https://social-plugins.line.me/lineit/share?url={{urlencode(URL::current())}}&text=ข้อมูลของฉัน" label='send line msg 2'/>
+                {{-- <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='send line msg'/> --}}
+                {{-- <x-button href="https://social-plugins.line.me/lineit/share?url={{urlencode(URL::current())}}&text=ข้อมูลของฉัน" label='send line msg 2'/> --}}
 
 
             </span>
