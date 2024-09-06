@@ -13,7 +13,7 @@
         <div class="relative h-min">
 
         <x-approved-number/>
-        <div class="z-30 absolute bottom-1 right-1">
+        <div class="z-30 absolute bottom-1 left-1 text-md">
         {{$client->member_code}}
         </div>
             <div id="result" >
@@ -23,15 +23,15 @@
             </span>
             </div>
             <span id="resultTex" class="absolute top-[63%] left-[7%] w-[53%] h-[33%] text-xs ">
-@foreach ($client->symptom as $a)
-- {{$a}}<br>
-@endforeach
+                @foreach ($client->symptom as $a)
+                - {{$a}}<br>
+                @endforeach
             </span>
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()"/>
                 <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center"
-                href="https://bit.ly/medcare-bayer-hormonal-quiz">
+                href="https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url={{Hash::make( urlencode( URL::current() ) )}}">
                     ปรึกษาปัญหา <br>
                     สุขภาพผู้หญิง<br>
                     คลิก
