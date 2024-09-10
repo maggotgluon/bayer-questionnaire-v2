@@ -30,8 +30,8 @@
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()"/>
-                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center"
-                href="https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url={{Hash::make( urlencode( URL::current() ) )}}">
+                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" onclick="go_line()">
+                {{--href="https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url={{base64_encode( urlencode( URL::current() ) )}}"> --}}
                     ปรึกษาปัญหา <br>
                     สุขภาพผู้หญิง<br>
                     คลิก
@@ -107,6 +107,7 @@
 			// Now that we have set up the image "onload" handeler, we can assign
             // an image URL to the image.
             img.src = imageUrl;
+			return imageUrl;
             // console.log(img)
             // var a = document.createElement('a');
             // a.href = imageUrl;
@@ -141,6 +142,19 @@
 			// document.body.removeChild(a)
         }
 
+        const go_line = async()=>  {
+			const canvas = document.getElementById('myCanvas');
+			let canvasImg = canvas.toDataURL("image/jpeg", 1.0);
+			// alert('test');
+			// window.open(canvasImg, '_blank');
+			// let canvasBlob = canvas.toBlob((blob) => window.open('https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url='+btoa(URL.createObjectURL(blob)), '_blank'));
+			
+			window.open('https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url='+btoa(canvasImg), '_blank');
+			// canvas.toBlob((blob) => window.open(URL.createObjectURL(blob), '_blank'));
+			// console.log('https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url='+canvasImg);
+            
+		}
+		
         const share = async()=>  {
             if (!('share' in navigator)) {
                 alert("Your browser doesn't support the Web Share API.")
