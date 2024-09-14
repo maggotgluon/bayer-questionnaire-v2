@@ -26,6 +26,14 @@ class QuizHormonalAcne extends Component
         }else{
             dd($client);
         }
+
+        $this->data['quiz_3'] = [
+            '1'=>false,
+            '2'=>false,
+            '3'=>false,
+            '4'=>false,
+            '5'=>false
+        ];
         // $this->client->symptom=[];
         // $this->page=6;
     }
@@ -35,6 +43,26 @@ class QuizHormonalAcne extends Component
     }
 
 
+    public function updatedData($value, $key){
+        $dataKey = explode('.',$key);
+        if(isset($this->data['quiz_3'])){
+            // dd($value,$key,$dataKey,$this->data['quiz_3']);
+            if($dataKey[0]=='quiz_3'){
+                // dd($dataKey[1]);
+                if($dataKey[1]=='1'||$dataKey[1]=='2'||$dataKey[1]=='3'||$dataKey[1]=='4'){
+                    $this->data['quiz_3']['5']=false;
+                }
+                elseif( $this->data['quiz_3']['5']==true){
+                    // dd($this->data['quiz_1'],$dataKey);
+                    $this->data['quiz_3']['1']=false;
+                    $this->data['quiz_3']['2']=false;
+                    $this->data['quiz_3']['3']=false;
+                    $this->data['quiz_3']['4']=false;
+                    // dd($value, $key,isset($value['a5']));
+                }
+            }
+        }
+    }
     public function quiz_1Submit(){
         $validatedData = $this->validate([
             'data.quiz_1' => 'required',

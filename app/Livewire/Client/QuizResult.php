@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Client;
 
+use App\Http\Controllers\resultImage;
 use App\Models\client;
 use Livewire\Component;
 
@@ -12,11 +13,16 @@ class QuizResult extends Component
     public $client;
     public function render()
     {
+        // phpinfo();
+        // $this->createImages();
         return view('livewire.client.quiz-result');
     }
 
     public function mount(client $client = null){
         $this->client = $client;
+
+        resultImage::generate($client);
+
         switch ($client->type) {
             case 'PMDD':
                 $this->image.='r1-';
@@ -55,6 +61,7 @@ class QuizResult extends Component
                 # code...
                 break;
         }
-        // dd($this->image);
+       
     }
+    
 }

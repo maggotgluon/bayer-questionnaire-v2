@@ -11,7 +11,7 @@
 
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
-
+            {{-- <img src="{{ asset('results/'.$client->id.'.jpg') }}" class="absolute right-full"/> --}}
         <x-approved-number/>
         <div class="z-30 absolute bottom-1 left-1 text-md">
         {{$client->member_code}}
@@ -30,8 +30,8 @@
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()"/>
-                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" onclick="go_line()">
-                {{--href="https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url={{base64_encode( urlencode( URL::current() ) )}}"> --}}
+                <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
+                href="https://miniapp.line.me/1656211306-JkY7zjyy/hormonal-quiz?img_url={{base64_encode( asset('results/'.$client->id.'.jpg') )}}">
                     ปรึกษาปัญหา <br>
                     สุขภาพผู้หญิง<br>
                     คลิก
@@ -84,7 +84,7 @@
 
                 @foreach ($client->symptom as $i=>$a)
 
-                    ctx.fillText("-{{$a}}", 50, 1110+({{$i}}*70));
+                    ctx.fillText(" {{$a}}", 50, 1110+({{$i}}*50));
 
                 @endforeach
 
@@ -95,10 +95,12 @@
                 t2.classList.add('hidden')
                 i.src=canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
                 data = canvas.toDataURL("image/png").replace(/^data:image\/(png|jpg);base64,/, "");
-                console.log(data)
+                // console.log(data)
 
 				document.getElementById('btn').classList.remove('hidden')
                 // document.body.appendChild(i)
+                // alert(data);
+                // Livewire.emit('testcomp')
 				return ctx
             };
 			//open images on new windows
@@ -106,8 +108,10 @@
 
 			// Now that we have set up the image "onload" handeler, we can assign
             // an image URL to the image.
+            
             img.src = imageUrl;
 			return imageUrl;
+
             // console.log(img)
             // var a = document.createElement('a');
             // a.href = imageUrl;
