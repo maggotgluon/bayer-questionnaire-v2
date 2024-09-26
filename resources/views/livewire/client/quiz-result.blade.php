@@ -11,7 +11,7 @@
 
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
-            <img src="{{ asset('results/'.$client->id.'.jpg') }}" class="absolute right-full"/>
+            {{-- <img src="{{ asset('results/'.$client->id.'.jpg') }}" class="absolute right-full"/> --}}
         <x-approved-number/>
         <div class="z-30 absolute bottom-1 left-1 text-md">
         {{$client->member_code}}
