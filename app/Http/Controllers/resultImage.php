@@ -59,18 +59,32 @@ class resultImage extends Controller
         $imgPath = public_path('images/'.$image);
         // dd($imgPath);
         $genImage = $manager->read($imgPath);
-
-        $genImage->text($client->name,735,120,function (FontFactory $font) {
-            $font->filename(public_path('fonts/mitr-regular.ttf'));
-            $font->size(35);
-            $font->color('fff');
-            // $font->stroke('ff5500', 2);
-            $font->align('left');
-            $font->valign('middle');
-            $font->lineHeight(1.5);
-            // $font->angle(10);
-            $font->wrap(250);
-        });
+        
+        if($client->type == 'HormonalAcne'){
+            $genImage->text($client->name,735,120,function (FontFactory $font) {
+                $font->filename(public_path('fonts/mitr-regular.ttf'));
+                $font->size(35);
+                $font->color('000');
+                // $font->stroke('ff5500', 2);
+                $font->align('left');
+                $font->valign('middle');
+                $font->lineHeight(1.5);
+                // $font->angle(10);
+                $font->wrap(250);
+            });
+        }else{
+            $genImage->text($client->name,735,120,function (FontFactory $font) {
+                $font->filename(public_path('fonts/mitr-regular.ttf'));
+                $font->size(35);
+                $font->color('fff');
+                // $font->stroke('ff5500', 2);
+                $font->align('left');
+                $font->valign('middle');
+                $font->lineHeight(1.5);
+                // $font->angle(10);
+                $font->wrap(250);
+            });
+        }
 
         // dd(implode("\n", $client->symptom) );
         $genImage->text(implode("\n", $client->symptom),80,1120,function (FontFactory $font) {

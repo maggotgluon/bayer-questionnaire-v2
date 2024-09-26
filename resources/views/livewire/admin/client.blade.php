@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 p-2 md:p-4 mt-8 md:mt-0">
-    <div class="md:col-span-7 flex gap-2 items-end flex-wrap">
+    <div class="md:col-span-7 grid grid-cols-3 gap-2 items-end flex-wrap">
         <x-datetime-picker
             id="min-max-times-input"
             without-time
@@ -19,7 +19,7 @@
 
     Client
 
-    <div class="flex gap-2 justify-left items-end flex-wrap">
+    <div class="grid grid-cols-3  gap-2 justify-left items-end flex-wrap">
         <x-select
             label="Select Status"
             placeholder="Select one status"
@@ -60,6 +60,7 @@
     <div class="p-2 md:p-4 md:m-2 bg-gray-100 grid grid-cols-2 gap-2 rounded-xl relative overflow-hidden bg-{{$c->type}}">
         <span class="bg-{{$c->level}} absolute w-2 h-full"></span>
         <h2 class="px-4 col-span-2 text-{{$c->type}} bg-{{$c->type}} text-2xl font-medium">{{$c->name}} {{$c->age}} </h2>
+        <span class="px-4 col-span-2 text-sm">{{$c->updated_at->isoFormat('LLLL')}} ({{$c->updated_at->diffForHumans()}})</span>
         <div>
             Type : <span class="text-{{$c->type}}">{{$c->type}} </span><br>
             status : <span class="inline-flex items-center gap-2 {{$c->status?'text-green-500':'text-red-600'}}"><x-icon name="{{$c->status?'check-circle':'x-circle'}}" class="w-4 h-4" /> {{$c->status?'Done':'Unfinish'}}</span>
@@ -71,15 +72,17 @@
         <div class="border-2 bg-white/50 border-white p-2  h-[10ch] overflow-y-scroll">
             <h4 class="text-xl">answer</h4>
             <ul>
-                @foreach ($c->answer as $key => $ans)
-                    <li class="flex gap-2 pl-2"> {{$key}} <br>
-                        <ul class="flex gap-2">
-                            @foreach ($ans as $sele)
-                                <li class=" pl-2">{{$sele}}</li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
+                @isset($c->answer)
+                    @foreach ($c->answer as $key => $ans)
+                        <li class="flex gap-2 pl-2"> {{$key}} <br>
+                            <ul class="flex gap-2">
+                                @foreach ($ans as $sele)
+                                    <li class=" pl-2">{{$sele}}</li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endforeach
+                @endisset
                 <hr>
             </ul>
         </div>

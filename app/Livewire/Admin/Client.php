@@ -30,7 +30,7 @@ class Client extends Component
     public function render()
     {
         return view('livewire.admin.client',[
-            'clients'=>$this->client()->paginate($this->filter['show'])
+            'clients'=>$this->client()->orderBy('updated_at')->paginate($this->filter['show'])
         ])->extends('layouts.admin');
     }
     public function client(){
