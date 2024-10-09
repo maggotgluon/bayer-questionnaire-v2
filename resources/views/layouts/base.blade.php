@@ -16,7 +16,7 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <script defer src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+        @stack('meta')
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         @livewireStyles
         @livewireScripts

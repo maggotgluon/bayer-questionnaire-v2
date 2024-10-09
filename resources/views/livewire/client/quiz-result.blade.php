@@ -1,13 +1,22 @@
 <div class="bg-gradient-to-b from-[rgba(171,229,65,1)] via-35% via-[rgba(64,196,168,1) ] to-[rgba(2,100,166,1)] w-full grid justify-items-center">
+    @push('meta')
+        <meta property="og:image" content="{{asset('results/'.$client->id.'.jpg')}}" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:image" content="{{asset('results/'.$client->id.'.jpg')}}" />
+        <meta property="og:title" content="{{$client->name}}" />
+        <meta name="twitter:title" content="{{$client->name}}">
 
-    <meta property="og:image" content="{{asset('images/'.$image)}}" />
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:image" content="{{asset('images/'.$image)}}" />
-    <meta property="og:title" content="{{$client->name}}" />
-    <meta name="twitter:title" content="{{$client->name}}">
+        <meta property="og:description" content="{{$client->name}}" />
+        <meta property="twitter:description" content="{{$client->name}}" />
 
-    <meta property="og:description" content="{{$client->name}}" />
-    <meta property="twitter:description" content="{{$client->name}}" />
+        <meta property="og:url" content="{{URL::current()}}" />
+        
+        <meta property="og:site_name" content="{{env('APP_NAME')}}" />
+        <meta property="og:description" content="{{env('APP_NAME')}}" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:logo" content="{{asset('logo.png')}}" />
+	@endpush
 
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
@@ -163,6 +172,20 @@
 		
         const share = async()=>  {
             if (!('share' in navigator)) {
+                try {
+                    await navigator.clipboard.writeText('{{URL::current()}}');
+                    $wireui.notify({
+                        icon: 'success',
+                        title: 'Link Coppied!',
+                    })
+                    console.log('Content copied to clipboard');
+                } catch (err) {
+                    $wireui.notify({
+                        icon: 'error',
+                        title: 'Error!',
+                    })
+                    console.error('Failed to copy: ', err);
+                }
                 alert("Your browser doesn't support the Web Share API.")
             return
             }
