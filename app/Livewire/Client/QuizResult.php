@@ -28,17 +28,41 @@ class QuizResult extends Component
                 $this->image.='r1-';
                 $this->element['btn']='btn-1 btn-1-lg ';
                 $this->element['color']='btn-text-green';
+                $this->element['type']='PMDD';
+
+                switch ($client->level) {
+                    case 'green': $this->element['detail']='green'; break;
+                    case 'yellow': $this->element['detail']='yellow'; break;
+                    case 'red': $this->element['detail']='red'; break;
+                    default: break;
+                }
                 break;
             case 'HormonalAcne':
                 $this->image.='r2-';
                 $this->element['btn']='btn-2 btn-2-lg ';
                 $this->element['color']='btn-text-orange';
+                $this->element['type']='HormonalAcne';
+                
+                switch ($client->level) {
+                    case 'green': $this->element['detail']='green'; break;
+                    case 'yellow': $this->element['detail']='yellow'; break;
+                    case 'red': $this->element['detail']='red'; break;
+                    default: break;
+                }
                 # code...
                 break;
             case 'HighTestosterone':
                 $this->image.='r3-';
                 $this->element['btn']='btn-3 btn-3-lg ';
                 $this->element['color']='btn-text-pink';
+                $this->element['type']='HighTestosterone';
+
+                switch ($client->level) {
+                    case 'green': $this->element['detail']='green'; break;
+                    case 'yellow': $this->element['detail']='yellow'; break;
+                    case 'red': $this->element['detail']='red'; break;
+                    default: break;
+                }
                 # code...
                 break;
             
@@ -61,6 +85,7 @@ class QuizResult extends Component
                 # code...
                 break;
         }
+
        
     }
     
