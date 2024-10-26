@@ -67,11 +67,11 @@
                 {{-- <span>{{URL::current()}}</span> --}}
                 <x-button label="copy result" onclick="copyLink()"/>
             </p>
-            <p class="p-2">
+            {{-- <p class="p-2">
                 <x-button label="facebook" 
                 data-href="{{URL::current()}}" />
                 <x-button label="twitter"/>
-            </p>
+            </p> --}}
      
             <x-slot name="footer" class="flex justify-end gap-x-4">
                 <x-button flat label="Close" x-on:click="close" />
