@@ -37,16 +37,19 @@
                 @endforeach
             </span>
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
-                <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()"/>
-                <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()"/>
+                <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()" wire:click="clickTrack('save')" />
+                <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()" wire:click="clickTrack('share')" />
                 @if(env('CONSULT_URL'))
                     <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
-                    href="{{env('CONSULT_URL')}}{{base64_encode( asset('results/'.$client->id.'.jpg') )}}">
+                    href="{{env('CONSULT_URL')}}{{base64_encode( asset('results/'.$client->id.'.jpg') )}}"
+                    wire:click="clickTrack('consult')" >
                         ปรึกษาปัญหา <br>
                         สุขภาพผู้หญิง<br>
                         คลิก
                     </x-button>
                 @endif
+                {{-- <x-button label="Open" x-on:click="$openModal('shareModal')" wire:click="clickTrack('share')" primary /> --}}
+
                 {{-- <x-button href="https://line.me/R/share?text={{urlencode(URL::current())}}" label='send line msg'/> --}}
                 {{-- <x-button href="https://social-plugins.line.me/lineit/share?url={{urlencode(URL::current())}}&text=ข้อมูลของฉัน" label='send line msg 2'/> --}}
 
@@ -57,6 +60,34 @@
     </div>
 
     <canvas id="myCanvas" class="w-full hidden"></canvas>
+
+    <x-modal name="shareModal" blur="base" z-index="10">
+        <x-card title="Share Result">
+            <p class="p-2">
+                {{-- <span>{{URL::current()}}</span> --}}
+                <x-button label="copy result" onclick="copyLink()"/>
+            </p>
+            <p class="p-2">
+                <x-button label="facebook" 
+                data-href="{{URL::current()}}" />
+                <x-button label="twitter"/>
+            </p>
+     
+            <x-slot name="footer" class="flex justify-end gap-x-4">
+                <x-button flat label="Close" x-on:click="close" />
+            </x-slot>
+        </x-card>
+    </x-modal>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
     <script>
         let loadImageOnCanvasAndResizeCanvasToFitImage = async(canvas, imageUrl,text) => {
             // Get the 2D Context from the canvas
@@ -170,8 +201,26 @@
             
 		}
 		
+        const copyLink = async()=>{
+            try {
+                await navigator.clipboard.writeText('{{URL::current()}}');
+                $wireui.notify({
+                    icon: 'success',
+                    title: 'Link Coppied!',
+                })
+                console.log('Content copied to clipboard');
+            } catch (err) {
+                $wireui.notify({
+                    icon: 'error',
+                    title: 'Error!',
+                })
+                console.error('Failed to copy: ', err);
+            }
+        }
+
         const share = async()=>  {
             if (!('share' in navigator)) {
+                $openModal('shareModal')
                 try {
                     await navigator.clipboard.writeText('{{URL::current()}}');
                     $wireui.notify({

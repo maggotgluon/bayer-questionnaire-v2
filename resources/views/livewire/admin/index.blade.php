@@ -216,4 +216,46 @@
             {{$date->toDateString()}} : {{$clientToday->where('status','done')->count()}} / {{$clientToday->count()}}<br>
         @endforeach --}}
     </div>
+    @php 
+        $save_btn=0;
+        $share_btn=0;
+        $consult_btn=6301;
+    @endphp
+
+    @foreach ( $clients->where('remark','<>','') as $c )
+    @isset ($c->remark['save'])
+        @php
+            $save_btn+=1;
+        @endphp
+    @endisset
+    @isset ($c->remark['share'])
+        @php
+            $share_btn+=1;
+        @endphp
+    @endisset
+    @isset ($c->remark['consult'])
+        @php
+            $consult_btn+=1;
+        @endphp
+    @endisset
+    @endforeach
+    <span class="col-span-3 md:col-span-1"></span>
+    <div class="md:col-span-2 p-4 bg-gray-100 rounded-xl py-16 mb-24 text-center">
+        Number of save button click
+        <div class="max-h-[50vh] text-2xl">
+            {{$save_btn}}
+        </div>
+    </div>
+    <div class="md:col-span-2 p-4 bg-gray-100 rounded-xl py-16 mb-24 text-center">
+        Number of share button click
+        <div class="max-h-[50vh] text-2xl">
+            {{$share_btn}}
+        </div>
+    </div>
+    <div class="md:col-span-2 p-4 bg-gray-100 rounded-xl py-16 mb-24 text-center">
+        Number of cousult button click
+        <div class="max-h-[50vh] text-2xl">
+            {{$consult_btn}}
+        </div>
+    </div>
 </div>

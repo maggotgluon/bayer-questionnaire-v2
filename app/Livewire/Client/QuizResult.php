@@ -17,7 +17,22 @@ class QuizResult extends Component
         // $this->createImages();
         return view('livewire.client.quiz-result');
     }
+    public function test(){
+        dd('test');
+    }
+    public function clickTrack($btn_name){
+        $client = $this->client->remark;
+        if(isset($client[$btn_name])){
 
+            $client[$btn_name]+=1;
+        }else{
+
+            $client[$btn_name]=1;
+        }
+        $this->client->remark = $client;
+        $this->client->save();
+        // dd($this->client->remark,$client,$btn_name);
+    }
     public function mount(client $client = null){
         $this->client = $client;
 
