@@ -169,6 +169,7 @@
         Ages
         <div class="max-h-[50vh] min-h-[300px]">
         <livewire:livewire-column-chart
+            key="{{ $ages_chart->reactiveKey() }}"
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :column-chart-model="$ages_chart"
         />
@@ -205,6 +206,7 @@
         Daly Active User
         <div class="max-h-[50vh] min-h-[300px]">
         <livewire:livewire-line-chart
+            key="{{ $date_chart->reactiveKey() }}"
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :line-chart-model="$date_chart"
         />
@@ -252,10 +254,12 @@
             {{$share_btn}}
         </div>
     </div>
+    @if(env('CONSULT_URL'))
     <div class="md:col-span-2 p-4 bg-gray-100 rounded-xl py-16 mb-24 text-center">
         Number of cousult button click
         <div class="max-h-[50vh] text-2xl">
             {{$consult_btn}}
         </div>
     </div>
+    @endif
 </div>
