@@ -16,7 +16,7 @@ class Index extends Component
     public $datefrom;
     public $dateto;
     public function mount(){
-        $this->datefrom = today();
+        $this->datefrom = today()->addDay(-7);
         $this->dateto = today();
         $this->clients=$this->client();
     }

@@ -169,6 +169,7 @@
         Ages
         <div class="max-h-[50vh] min-h-[300px]">
         <livewire:livewire-column-chart
+            key="{{ $ages_chart->reactiveKey() }}"
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :column-chart-model="$ages_chart"
         />
@@ -205,6 +206,7 @@
         Daly Active User
         <div class="max-h-[50vh] min-h-[300px]">
         <livewire:livewire-line-chart
+            key="{{ $date_chart->reactiveKey() }}"
             {{-- key="{{ $columnChartModel->reactiveKey() }}" --}}
             :line-chart-model="$date_chart"
         />
