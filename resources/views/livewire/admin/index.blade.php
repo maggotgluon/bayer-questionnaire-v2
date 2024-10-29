@@ -23,11 +23,13 @@
 
     <span class="col-span-3 md:col-span-2 text-right p-4 bg-gray-100 rounded-xl ">
         <h2 class="col-span-2">Total User</h2>
-        <div class="text-6xl font-md relative m-4">
-        {{$clients->where('status','done')->count()}}
-        <span class="text-sm absolute bottom-0 left-full">
-        /{{$clients->count()}}
-        </span>
+        <div class="text-6xl font-md relative m-4 h-full">
+            <div class="absolute right-0">
+                {{ number_format( $clients->where('status','done')->count() )}}
+                <span class="text-sm  text-right">
+                    /{{number_format($clients->count())}}
+                </span>
+            </div>
         </div>
 
     </span>
@@ -45,9 +47,9 @@
                 <div class="font-md relative text-left bg-[#009CB430] rounded-lg p-1 text-[#009CB4]">
                     PMDD :
                     <span class="relative">
-                    {{$clients->where('type','PMDD')->where('status','done')->count()}}
+                    {{number_format($clients->where('type','PMDD')->where('status','done')->count())}}
                     <div class="text-2xs absolute bottom-0 left-full">
-                    /{{$clients->where('type','PMDD')->count()}}
+                    /{{number_format($clients->where('type','PMDD')->count())}}
                     </div>
                     </span>
                 </div>
@@ -56,9 +58,9 @@
                 <div class="font-md relative text-left bg-[#EF482E30] rounded-lg p-1 text-[#EF482E]">
                     Hormonal Acne :
                     <span class="relative">
-                    {{$clients->where('type','HormonalAcne')->where('status','done')->count()}}
+                    {{number_format($clients->where('type','HormonalAcne')->where('status','done')->count())}}
                     <div class="text-2xs absolute bottom-0 left-full">
-                    /{{$clients->where('type','HormonalAcne')->count()}}
+                    /{{number_format($clients->where('type','HormonalAcne')->count())}}
                     </div>
                     </span>
                 </div>
@@ -67,9 +69,9 @@
                 <div class="font-md relative text-left bg-[#ED048C30] rounded-lg p-1 text-[#ED048C]">
                     High Testosterone :
                     <span class="relative">
-                    {{$clients->where('type','HighTestosterone')->where('status','done')->count()}}
+                    {{number_format($clients->where('type','HighTestosterone')->where('status','done')->count())}}
                     <div class="text-2xs absolute bottom-0 left-full">
-                    /{{$clients->where('type','HighTestosterone')->count()}}
+                    /{{number_format($clients->where('type','HighTestosterone')->count())}}
                     </div>
                     </span>
                 </div>
@@ -89,17 +91,17 @@
                 $totalPMDD_yellow = $clientPMDD->where('level','yellow')->count();
                 $totalPMDD_red = $clientPMDD->where('level','red')->count();
             @endphp
-            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{$totalPMDD_green}}
+            <li class="p-2 bg-green text-green-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level GREEN : </span> {{number_format($totalPMDD_green)}}
                 <span class="float-right">
                     {{round( $totalPMDD_green==0?0:(float)($totalPMDD_green / $totalPMDD)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{$totalPMDD_yellow}}
+            <li class="p-2 bg-yellow text-yellow-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level YELLOW : </span> {{number_format($totalPMDD_yellow)}}
                 <span class="float-right">
                     {{round( $totalPMDD_yellow==0?0:(float)($totalPMDD_yellow / $totalPMDD)*100 , 2)}}%
                 </span>
             </li>
-            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{$totalPMDD_red}}
+            <li class="p-2 bg-red text-red-600 m-2 rounded-xl"><span class="block text-sm md:inline-block">Level RED : </span> {{number_format($totalPMDD_red)}}
                 <span class="float-right">
                     {{round( $totalPMDD_red==0?0:(float)($totalPMDD_red / $totalPMDD)*100 , 2)}}%
                 </span>

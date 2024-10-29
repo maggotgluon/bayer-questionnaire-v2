@@ -17,7 +17,9 @@
         <meta property="og:type" content="website" />
         <meta property="og:logo" content="{{asset('logo.png')}}" />
 	@endpush
-
+    @if(env('CONSULT_BKK'))
+    {{env('CONSULT_BKK')}}result={{$client->type}}&color={{$client->level}}&symptom={{implode('::',$client->symptom) }}
+    @endif
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
             {{-- <img src="{{ asset('results/'.$client->id.'.jpg') }}" class="absolute right-full"/> --}}
@@ -42,6 +44,14 @@
                 @if(env('CONSULT_URL'))
                     <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
                     href="{{env('CONSULT_URL')}}{{base64_encode( asset('results/'.$client->id.'.jpg') )}}"
+                    wire:click="clickTrack('consult')" >
+                        ปรึกษาปัญหา <br>
+                        สุขภาพผู้หญิง<br>
+                        คลิก
+                    </x-button>
+                @elseif(env('CONSULT_BKK'))
+                    <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
+                    href="{{env('CONSULT_BKK')}}result={{$client->type}}&color={{$client->level}}&symptom={{implode('::',$client->symptom) }}"
                     wire:click="clickTrack('consult')" >
                         ปรึกษาปัญหา <br>
                         สุขภาพผู้หญิง<br>
