@@ -170,6 +170,9 @@ return [
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
+        Phattarachai\LaravelMobileDetect\AgentServiceProvider::class,
+        Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
+
     ])->toArray(),
 
     /*
@@ -185,6 +188,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Agent' => Phattarachai\LaravelMobileDetect\Facades\Agent::class,
+        'ShareButton' => Kudashevs\ShareButtons\ShareButtons::class,
     ])->toArray(),
 
 ];

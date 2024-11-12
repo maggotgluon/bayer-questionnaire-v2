@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "527f88d0ce9477c17adbf61740c5dc75",
+    "content-hash": "a1e92056f38a49ae5771b554f22f51c1",
     "packages": [
         {
             "name": "asantibanez/livewire-charts",
@@ -1707,6 +1707,128 @@
             "time": "2024-08-16T14:57:26+00:00"
         },
         {
+            "name": "jaybizzle/crawler-detect",
+            "version": "v1.2.121",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JayBizzle/Crawler-Detect.git",
+                "reference": "40ecda6322d4163fe2c6e1dd47c574f580b8487f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/40ecda6322d4163fe2c6e1dd47c574f580b8487f",
+                "reference": "40ecda6322d4163fe2c6e1dd47c574f580b8487f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.5|^6.5|^9.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jaybizzle\\CrawlerDetect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Beech",
+                    "email": "m@rkbee.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CrawlerDetect is a PHP class for detecting bots/crawlers/spiders via the user agent",
+            "homepage": "https://github.com/JayBizzle/Crawler-Detect/",
+            "keywords": [
+                "crawler",
+                "crawler detect",
+                "crawler detector",
+                "crawlerdetect",
+                "php crawler detect"
+            ],
+            "support": {
+                "issues": "https://github.com/JayBizzle/Crawler-Detect/issues",
+                "source": "https://github.com/JayBizzle/Crawler-Detect/tree/v1.2.121"
+            },
+            "time": "2024-10-20T21:42:39+00:00"
+        },
+        {
+            "name": "kudashevs/laravel-share-buttons",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kudashevs/laravel-share-buttons.git",
+                "reference": "ebea8b7750433e10893c45fdc74cd6d893860e62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kudashevs/laravel-share-buttons/zipball/ebea8b7750433e10893c45fdc74cd6d893860e62",
+                "reference": "ebea8b7750433e10893c45fdc74cd6d893860e62",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.27|^7.0|^8.0|^9.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.1|^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kudashevs\\ShareButtons\\Providers\\ShareButtonsServiceProvider"
+                    ],
+                    "aliases": {
+                        "ShareButtons": "Kudashevs\\ShareButtons\\Facades\\ShareButtonsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kudashevs\\ShareButtons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Kudashev",
+                    "email": "kudashevs@gmail.com",
+                    "homepage": "https://kudashevs.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Joren Van Hocht",
+                    "email": "joren@codeswitch.be",
+                    "homepage": "https://codeswitch.be",
+                    "role": "Creator"
+                }
+            ],
+            "description": "A laravel social media share buttons package.",
+            "homepage": "https://github.com/kudashevs/laravel-share-buttons",
+            "keywords": [
+                "laravel",
+                "share",
+                "share buttons",
+                "social links"
+            ],
+            "support": {
+                "issues": "https://github.com/kudashevs/laravel-share-buttons/issues",
+                "source": "https://github.com/kudashevs/laravel-share-buttons/tree/v5.1.0"
+            },
+            "time": "2024-04-15T21:03:59+00:00"
+        },
+        {
             "name": "laravel-frontend-presets/tall",
             "version": "v7.0.2",
             "source": {
@@ -2842,6 +2964,68 @@
             "time": "2024-03-05T15:54:03+00:00"
         },
         {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.8.45",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "96aaebcf4f50d3d2692ab81d2c5132e425bca266"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/96aaebcf4f50d3d2692ab81d2c5132e425bca266",
+                "reference": "96aaebcf4f50d3d2692ab81d2c5132e425bca266",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.36"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Detection": "namespaced/"
+                },
+                "classmap": [
+                    "Mobile_Detect.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "support": {
+                "issues": "https://github.com/serbanghita/Mobile-Detect/issues",
+                "source": "https://github.com/serbanghita/Mobile-Detect/tree/2.8.45"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/serbanghita",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-11-07T21:57:25+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "3.5.0",
             "source": {
@@ -3481,6 +3665,80 @@
                 "source": "https://github.com/opcodesio/mail-parser/tree/v0.1.6"
             },
             "time": "2023-11-19T08:47:43+00:00"
+        },
+        {
+            "name": "phattarachai/laravel-mobile-detect",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phattarachai/laravel-mobile-detect.git",
+                "reference": "defbaf39dd5a514e6c7c15c11224e5d197e86dd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phattarachai/laravel-mobile-detect/zipball/defbaf39dd5a514e6c7c15c11224e5d197e86dd2",
+                "reference": "defbaf39dd5a514e6c7c15c11224e5d197e86dd2",
+                "shasum": ""
+            },
+            "require": {
+                "jaybizzle/crawler-detect": "^1.2",
+                "mobiledetect/mobiledetectlib": "^2.8.37",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^v2.5.2",
+                "phpunit/phpunit": "^9.5.13"
+            },
+            "suggest": {
+                "illuminate/support": "Required for laravel service providers"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Phattarachai\\LaravelMobileDetect\\AgentServiceProvider"
+                    ],
+                    "aliases": {
+                        "Agent": "Phattarachai\\LaravelMobileDetect\\Facades\\Agent"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phattarachai\\LaravelMobileDetect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phattarachai Chaiimongkol",
+                    "homepage": "https://phattarachai.dev"
+                }
+            ],
+            "description": "Desktop/mobile user agent parser with support for Laravel, based on MobileDetect",
+            "homepage": "https://github.com/phattarachai/laravel-moibile-detect",
+            "keywords": [
+                "Agent",
+                "browser",
+                "desktop",
+                "laravel",
+                "mobile",
+                "platform",
+                "user agent",
+                "useragent"
+            ],
+            "support": {
+                "issues": "https://github.com/phattarachai/laravel-mobile-detect/issues",
+                "source": "https://github.com/phattarachai/laravel-mobile-detect/tree/v1.0.2"
+            },
+            "abandoned": true,
+            "time": "2023-03-06T20:11:02+00:00"
         },
         {
             "name": "phpoption/phpoption",

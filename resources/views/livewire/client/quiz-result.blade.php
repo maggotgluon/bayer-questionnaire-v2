@@ -40,7 +40,11 @@
             </span>
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()" wire:click="clickTrack('save')" />
-                <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()" wire:click="clickTrack('share')" />
+                @if ($agent->isDesktop())
+                    <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="DesktopShare()" wire:click="clickTrack('share')" />
+                @else                
+                    <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()" wire:click="clickTrack('share')" />
+                @endif 
                 @if(env('CONSULT_URL'))
                     <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
                     href="{{env('CONSULT_URL')}}{{base64_encode( asset('results/'.$client->id.'.jpg') )}}"
@@ -77,6 +81,7 @@
                 {{-- <span>{{URL::current()}}</span> --}}
                 <x-button label="copy result" onclick="copyLink()"/>
             </p>
+            
             {{-- <p class="p-2">
                 <x-button label="facebook" 
                 data-href="{{URL::current()}}" />
@@ -227,7 +232,9 @@
                 console.error('Failed to copy: ', err);
             }
         }
-
+        const DesktopShare = async()=>  {
+            $openModal('shareModal')
+        }
         const share = async()=>  {
             if (!('share' in navigator)) {
                 $openModal('shareModal')

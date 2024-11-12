@@ -4,22 +4,36 @@ namespace App\Livewire\Client;
 
 use App\Http\Controllers\resultImage;
 use App\Models\client;
+use Kudashevs\ShareButtons\ShareButtons;
 use Livewire\Component;
+use Phattarachai\LaravelMobileDetect\Agent;
 
 class QuizResult extends Component
 {
     public $image;
     public $element;
     public $client;
+
     public function render()
     {
         // phpinfo();
         // $this->createImages();
-        return view('livewire.client.quiz-result');
+        return view('livewire.client.quiz-result' ,[
+            'agent'=>new Agent()
+            ] 
+        );
     }
     public function test(){
         dd('test');
+        // $a = ShareButtons::page('https://site.com', 'Page title', [
+        //     'title' => 'Page title',
+        //     'rel' => 'nofollow noopener noreferrer',
+        // ]) ->facebook()
+        // ->linkedin(['rel' => 'follow']);
+        // ->getShareButtons();
     }
+
+    
     public function clickTrack($btn_name){
         $client = $this->client->remark;
         if(isset($client[$btn_name])){
@@ -34,6 +48,7 @@ class QuizResult extends Component
         // dd($this->client->remark,$client,$btn_name);
     }
     public function mount(client $client = null){
+
         $this->client = $client;
 
         resultImage::generate($client);

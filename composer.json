@@ -9,6 +9,7 @@
         "asantibanez/livewire-charts": "^4.1",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^3.8",
+        "kudashevs/laravel-share-buttons": "^5.1",
         "laravel-frontend-presets/tall": "^7.0",
         "laravel/framework": "^10.10",
         "laravel/horizon": "^5.23",
@@ -16,6 +17,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "opcodesio/log-viewer": "^3.5",
+        "phattarachai/laravel-mobile-detect": "^1.0",
         "spatie/laravel-analytics": "^5.4",
         "wireui/wireui": "^1.18"
     },
