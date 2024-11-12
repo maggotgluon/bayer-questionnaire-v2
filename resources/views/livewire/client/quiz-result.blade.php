@@ -41,7 +41,21 @@
             <span id="btn" class="absolute top-[73%] left-[62%] w-[37%] h-[23%]">
                 <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%]" label="SAVE PHOTO" onclick="saveImg()" wire:click="clickTrack('save')" />
                 @if ($agent->isDesktop())
-                    <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="DesktopShare()" wire:click="clickTrack('share')" />
+                    <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}"
+                        {{-- onclick="DesktopShare()" --}}
+                        href="{{ ShareButtons::currentPage(env('APP_NAME'), [
+                                    'title' => env('APP_NAME'),
+                                    'rel' => 'nofollow noopener noreferrer',
+                                ])->facebook()->getRawLinks()['facebook'] }}"
+                        wire:click="clickTrack('share')" >
+                        <p class="relative">SHARE QUIZ
+                            <i class="fa-brands fa-facebook"></i>
+
+                            {{-- <span class="absolute -left-[1ch] w-auto"> 
+                                <i class="fa-brands fa-facebook"></i>
+                            </span> --}}
+                        </p>
+                    </x-button>
                 @else                
                     <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()" wire:click="clickTrack('share')" />
                 @endif 
@@ -81,6 +95,7 @@
                 {{-- <span>{{URL::current()}}</span> --}}
                 <x-button label="copy result" onclick="copyLink()"/>
             </p>
+            
             
             {{-- <p class="p-2">
                 <x-button label="facebook" 
