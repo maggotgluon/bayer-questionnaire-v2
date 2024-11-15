@@ -17,9 +17,7 @@
         <meta property="og:type" content="website" />
         <meta property="og:logo" content="{{asset('logo.png')}}" />
 	@endpush
-    @if(env('CONSULT_BKK'))
-    {{env('CONSULT_BKK')}}result={{$client->type}}&color={{$client->level}}&symptom={{implode('::',$client->symptom) }}
-    @endif
+    
     <div class="shadow-lg grid max-w-md w-full justify-items-center">
         <div class="relative h-min">
             {{-- <img src="{{ asset('results/'.$client->id.'.jpg') }}" class="absolute right-full"/> --}}
@@ -59,6 +57,9 @@
                 @else                
                     <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="SHARE QUIZ" onclick="share()" wire:click="clickTrack('share')" />
                 @endif 
+                {{-- @if ( url()->previous()==url()->current() || url()->previous() == '' || url()->previous() == route('home') )
+                    <x-button class="btn-0 !m-0 !w-full !p-2 min-h-[20%] {{$element['color']}}" label="Start again" />
+                @endif --}}
                 @if(env('CONSULT_URL'))
                     <x-button class="{{$element['btn']}} !m-0 !w-full !p-2 min-h-[70%] text-center" 
                     href="{{env('CONSULT_URL')}}{{base64_encode( asset('results/'.$client->id.'.jpg') )}}"
