@@ -15,13 +15,13 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-        <script defer src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/apexcharts@3.54.0/dist/apexcharts.min.js"></script>
 
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="{{ asset('css/share-buttons.css') }}">
         <script src="{{ asset('js/share-buttons.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-        <script src="{{ asset('js/share-buttons.jquery.js') }}"></script>
+        <script src="{{ asset('js/share-buttons.jquery.js') }}"></script> --}}
 
         @stack('meta')
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
